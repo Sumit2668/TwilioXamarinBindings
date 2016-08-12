@@ -667,20 +667,20 @@ namespace Twilio.Conversations
 		[Export("constraints")]
 		VideoConstraints Constraints();
 
-		// +(instancetype _Null_unspecified)constraintsWithMinSize:(CMVideoDimensions)minSize;
-		[Static]
-		[Export("constraintsWithMinSize:")]
-		VideoConstraints ConstraintsWithMinSize(CMVideoDimensions minSize);
+		//// +(instancetype _Null_unspecified)constraintsWithMinSize:(CMVideoDimensions)minSize;
+		//[Static]
+		//[Export("constraintsWithMinSize:")]
+		//VideoConstraints ConstraintsWithMinSize(CMVideoDimensions minSize);
 
-		// +(instancetype _Null_unspecified)constraintsWithMaxSize:(CMVideoDimensions)maxSize;
-		[Static]
-		[Export("constraintsWithMaxSize:")]
-		VideoConstraints ConstraintsWithMaxSize(CMVideoDimensions maxSize);
+		//// +(instancetype _Null_unspecified)constraintsWithMaxSize:(CMVideoDimensions)maxSize;
+		//[Static]
+		//[Export("constraintsWithMaxSize:")]
+		//VideoConstraints ConstraintsWithMaxSize(CMVideoDimensions maxSize);
 
-		// +(instancetype _Null_unspecified)constraintsWithMaxSize:(CMVideoDimensions)maxSize minSize:(CMVideoDimensions)minSize maxFrameRate:(NSUInteger)maxFrameRate minFrameRate:(NSUInteger)minFrameRate;
-		[Static]
-		[Export("constraintsWithMaxSize:minSize:maxFrameRate:minFrameRate:")]
-		VideoConstraints ConstraintsWithMaxSize(CMVideoDimensions maxSize, CMVideoDimensions minSize, nuint maxFrameRate, nuint minFrameRate);
+		//// +(instancetype _Null_unspecified)constraintsWithMaxSize:(CMVideoDimensions)maxSize minSize:(CMVideoDimensions)minSize maxFrameRate:(NSUInteger)maxFrameRate minFrameRate:(NSUInteger)minFrameRate;
+		//[Static]
+		//[Export("constraintsWithMaxSize:minSize:maxFrameRate:minFrameRate:")]
+		//VideoConstraints ConstraintsWithMaxSize(CMVideoDimensions maxSize, CMVideoDimensions minSize, nuint maxFrameRate, nuint minFrameRate);
 
 		// @property (readonly, assign, nonatomic) CMVideoDimensions maxSize;
 		[Export("maxSize", ArgumentSemantic.Assign)]
