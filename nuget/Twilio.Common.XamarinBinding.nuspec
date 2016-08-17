@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>Twilio.Common.Xamarin</id>
+    <id>Twilio.Common.XamarinBinding</id>
     <title>Twilio Common Library for Xamarin</title>
-    <version>0.2.0.1</version>
+    <version>0.3.1.0</version>
     <authors>Twilio</authors>
     <owners>twilio</owners>
+	<projectUrl>https://github.com/dkornev/TwilioXamarinBindings</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Twilio Common Library for Xamarin.</summary>
     <description>
@@ -16,11 +17,8 @@
   </metadata>
   <files>
 
-    <!-- Android -->
-    <file src="./source/Twilio.Common.Android/bin/Release/Twilio.Common.Android.dll" target="lib\MonoAndroid403" />
-    
     <!-- iOS -->
-    <file src="./source/Twilio.Common.iOS/bin/Release/Twilio.Common.iOS.dll" target="lib\Xamarin.iOS10" />    
+    <file src="..\source\Twilio.Common.iOS\bin\Release\Twilio.Common.iOS.dll" target="lib\Xamarin.iOS10" />    
 
   </files>
 </package>
