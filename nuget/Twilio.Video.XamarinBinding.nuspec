@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>Twilio.Conversations.XamarinBinding</id>
-    <title>Twilio Conversations for Xamarin</title>
-    <version>0.25.1.0</version>
+    <id>Twilio.Video.XamarinBinding</id>
+    <title>Twilio Video for Xamarin</title>
+    <version>1.0.0-beta10</version>
     <authors>Twilio</authors>
     <owners>twilio</owners>
 	<projectUrl>https://github.com/dkornev/TwilioXamarinBindings</projectUrl>
@@ -15,13 +15,13 @@
     <copyright>Copyright © Twilio</copyright>
     <!-- <iconUrl></iconUrl> -->
     <dependencies>
-      <dependency id="Twilio.Common.XamarinBinding" version="0.3.1.0" />
+      <dependency id="Twilio.Video.XamarinBinding" version="1.0.0-beta10" />
     </dependencies>
   </metadata>
   <files>
 
     <!-- iOS -->
-    <file src="..\source\Twilio.Conversations.iOS\bin\Release\Twilio.Conversations.iOS.dll" target="lib\Xamarin.iOS10" />
+    <file src="..\source\Twilio.Video.iOS\bin\Release\Twilio.Video.iOS.dll" target="lib\Xamarin.iOS10" />
 
   </files>
 </package>
