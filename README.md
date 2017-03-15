@@ -2,21 +2,11 @@
 
 Twilio Bindings for Xamarin apps
 
-Twilio.Common [![NuGet][common-nuget-img]][common-nuget-link]
-
-Twilio.Conversations [![NuGet][conversations-nuget-img]][conversations-nuget-link]
+Twilio.Video 1.0.0-beta10 [![NuGet][video-nuget-img]][video-nuget-link]
 
 ## How to Build
 
-You will need Xamarin installed on a mac.  Run the following:
+You will need to download Twilio.Video iOS native SDK from https://www.twilio.com/docs/api/video/download-video-sdks#ios-sdk and copy TwilioVideo.a file to source\Twilio.Video.iOS directory
 
-```
-sh ./bootstrapper.sh -t libs
-```
-
-This will download the necessary cake tooling in a `./tools/` folder, download the external dependencies, and run the build scripts.
-
-[common-nuget-img]: https://img.shields.io/badge/nuget-0.3.1-blue.svg
-[common-nuget-link]: https://www.nuget.org/packages/Twilio.Common.XamarinBinding
-[conversations-nuget-img]: https://img.shields.io/badge/nuget-0.25.1-blue.svg
-[conversations-nuget-link]: https://www.nuget.org/packages/Twilio.Conversations.XamarinBinding
+[video-nuget-img]: https://img.shields.io/badge/nuget-1.0.0.b10-blue.svg
+[video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.XamarinBinding
