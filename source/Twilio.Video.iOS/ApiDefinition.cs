@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using CoreFoundation;
 using CoreMedia;
 using CoreVideo;
@@ -8,6 +9,33 @@ using UIKit;
 
 namespace Twilio.Video
 {
+    public static class ConstantsExtensions
+    {
+        public static CMVideoDimensions IntPtrToCMVideoDimensions(IntPtr ptr)
+        {
+            var dimensions = new CMVideoDimensions();
+
+            if (ptr != IntPtr.Zero)
+            {
+                dimensions = (CMVideoDimensions)Marshal.PtrToStructure<CMVideoDimensions>(ptr);
+            }
+
+            return dimensions;
+        }
+
+        public static TVIAspectRatio IntPtrToTVIAspectRatio(IntPtr ptr)
+        {
+            var dimensions = new TVIAspectRatio();
+
+            if (ptr != IntPtr.Zero)
+            {
+                dimensions = (TVIAspectRatio)Marshal.PtrToStructure<TVIAspectRatio>(ptr);
+            }
+
+            return dimensions;
+        }
+    }
+
     // @interface TVIAudioConstraintsBuilder : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
@@ -68,8 +96,8 @@ namespace Twilio.Video
         void ConfigureAudioSession(TVIAudioOutput audioOutput);
 
         // -(BOOL)startAudio;
+        [Static]
         [Export("startAudio")]
-        [Verify(MethodToProperty)]
         bool StartAudio { get; }
 
         // -(void)stopAudio;
@@ -177,7 +205,7 @@ namespace Twilio.Video
     {
         // -(instancetype _Null_unspecified)initWithTimestamp:(int64_t)timestamp buffer:(CVImageBufferRef _Nonnull)imageBuffer orientation:(TVIVideoOrientation)orientation;
         [Export("initWithTimestamp:buffer:orientation:")]
-        unsafe IntPtr Constructor(long timestamp, CVImageBufferRef* imageBuffer, TVIVideoOrientation orientation);
+        unsafe IntPtr Constructor(long timestamp, CVImageBuffer imageBuffer, TVIVideoOrientation orientation);
 
         // @property (readonly, assign, nonatomic) int64_t timestamp;
         [Export("timestamp")]
@@ -193,7 +221,7 @@ namespace Twilio.Video
 
         // @property (readonly, assign, nonatomic) CVImageBufferRef _Nonnull imageBuffer;
         [Export("imageBuffer", ArgumentSemantic.Assign)]
-        unsafe CVImageBufferRef* ImageBuffer { get; }
+        unsafe IntPtr ImageBuffer { get; }
 
         // @property (readonly, assign, nonatomic) TVIVideoOrientation orientation;
         [Export("orientation", ArgumentSemantic.Assign)]
@@ -206,7 +234,7 @@ namespace Twilio.Video
     {
         // @property (assign, nonatomic) CMVideoDimensions dimensions;
         [Export("dimensions", ArgumentSemantic.Assign)]
-        CMVideoDimensions Dimensions { get; set; }
+        IntPtr Dimensions { get; set; }
 
         // @property (assign, nonatomic) NSUInteger frameRate;
         [Export("frameRate")]
@@ -214,7 +242,7 @@ namespace Twilio.Video
 
         // @property (assign, nonatomic) TVIPixelFormat pixelFormat;
         [Export("pixelFormat", ArgumentSemantic.Assign)]
-        TVIPixelFormat PixelFormat { get; set; }
+        /*TVIPixelFormat* TODO*/ ulong PixelFormat { get; set; }
     }
 
     // @protocol TVIVideoCaptureConsumer <NSObject>
@@ -259,33 +287,32 @@ namespace Twilio.Video
         void StopCapture();
     }
 
-    [Static]
-    [Verify(ConstantsInterfaceAssociation)]
+    /*[Static] TODO*/
     partial interface Constants
     {
         // extern const CMVideoDimensions TVIVideoConstraintsSize352x288;
         [Field("TVIVideoConstraintsSize352x288", "__Internal")]
-        CMVideoDimensions TVIVideoConstraintsSize352x288 { get; }
+        IntPtr TVIVideoConstraintsSize352x288 { get; }
 
         // extern const CMVideoDimensions TVIVideoConstraintsSize480x360;
         [Field("TVIVideoConstraintsSize480x360", "__Internal")]
-        CMVideoDimensions TVIVideoConstraintsSize480x360 { get; }
+        IntPtr TVIVideoConstraintsSize480x360 { get; }
 
         // extern const CMVideoDimensions TVIVideoConstraintsSize640x480;
         [Field("TVIVideoConstraintsSize640x480", "__Internal")]
-        CMVideoDimensions TVIVideoConstraintsSize640x480 { get; }
+        IntPtr TVIVideoConstraintsSize640x480 { get; }
 
         // extern const CMVideoDimensions TVIVideoConstraintsSize960x540;
         [Field("TVIVideoConstraintsSize960x540", "__Internal")]
-        CMVideoDimensions TVIVideoConstraintsSize960x540 { get; }
+        IntPtr TVIVideoConstraintsSize960x540 { get; }
 
         // extern const CMVideoDimensions TVIVideoConstraintsSize1280x720;
         [Field("TVIVideoConstraintsSize1280x720", "__Internal")]
-        CMVideoDimensions TVIVideoConstraintsSize1280x720 { get; }
+        IntPtr TVIVideoConstraintsSize1280x720 { get; }
 
         // extern const CMVideoDimensions TVIVideoConstraintsSize1280x960;
         [Field("TVIVideoConstraintsSize1280x960", "__Internal")]
-        CMVideoDimensions TVIVideoConstraintsSize1280x960 { get; }
+        IntPtr TVIVideoConstraintsSize1280x960 { get; }
 
         // extern const NSUInteger TVIVideoConstraintsFrameRate30;
         [Field("TVIVideoConstraintsFrameRate30", "__Internal")]
@@ -332,7 +359,7 @@ namespace Twilio.Video
 
     // @interface TVICameraCapturer : NSObject <TVIVideoCapturer>
     [BaseType(typeof(NSObject))]
-    interface TVICameraCapturer : ITVIVideoCapturer
+    interface TVICameraCapturer : TVIVideoCapturer
     {
         // @property (readonly, assign, nonatomic) TVIVideoCaptureSource source;
         [Export("source", ArgumentSemantic.Assign)]
@@ -352,7 +379,7 @@ namespace Twilio.Video
 
         // @property (readonly, assign, nonatomic) CMVideoDimensions previewDimensions;
         [Export("previewDimensions", ArgumentSemantic.Assign)]
-        CMVideoDimensions PreviewDimensions { get; }
+        IntPtr PreviewDimensions { get; }
 
         // @property (readonly, nonatomic, strong) TVICameraPreviewView * _Nonnull previewView;
         [Export("previewView", ArgumentSemantic.Strong)]
@@ -386,7 +413,6 @@ namespace Twilio.Video
         // +(NSArray<NSNumber *> * _Nonnull)availableSources;
         [Static]
         [Export("availableSources")]
-        [Verify(MethodToProperty)]
         NSNumber[] AvailableSources { get; }
     }
 
@@ -427,6 +453,7 @@ namespace Twilio.Video
     interface TVIConnectOptionsBuilder_CallKit
     {
         // @property (nonatomic, strong) NSUUID * _Nullable uuid;
+        [Static]
         [NullAllowed, Export("uuid", ArgumentSemantic.Strong)]
         NSUuid Uuid { get; set; }
     }
@@ -476,12 +503,12 @@ namespace Twilio.Video
     interface TVIConnectOptions_CallKit
     {
         // @property (readonly, nonatomic, strong) NSUUID * _Nullable uuid;
+        [Static]
         [NullAllowed, Export("uuid", ArgumentSemantic.Strong)]
         NSUuid Uuid { get; }
     }
 
-    [Static]
-    [Verify(ConstantsInterfaceAssociation)]
+    /*[Static] TODO*/
     partial interface Constants
     {
         // extern NSString *const _Nonnull kTVIErrorDomain;
@@ -665,7 +692,7 @@ namespace Twilio.Video
     {
         // @property (readonly, assign, nonatomic) CMVideoDimensions captureDimensions;
         [Export("captureDimensions", ArgumentSemantic.Assign)]
-        CMVideoDimensions CaptureDimensions { get; }
+        IntPtr CaptureDimensions { get; }
 
         // @property (readonly, assign, nonatomic) NSUInteger captureFrameRate;
         [Export("captureFrameRate")]
@@ -673,7 +700,7 @@ namespace Twilio.Video
 
         // @property (readonly, assign, nonatomic) CMVideoDimensions dimensions;
         [Export("dimensions", ArgumentSemantic.Assign)]
-        CMVideoDimensions Dimensions { get; }
+        IntPtr Dimensions { get; }
 
         // @property (readonly, assign, nonatomic) NSUInteger frameRate;
         [Export("frameRate")]
@@ -829,6 +856,7 @@ namespace Twilio.Video
     interface TVIRoom_CallKit
     {
         // @property (readonly, nonatomic) NSUUID * _Nullable uuid;
+        [Static]
         [NullAllowed, Export("uuid")]
         NSUuid Uuid { get; }
     }
@@ -844,19 +872,19 @@ namespace Twilio.Video
 
         // @optional -(void)room:(TVIRoom * _Nonnull)room didFailToConnectWithError:(NSError * _Nonnull)error;
         [Export("room:didFailToConnectWithError:")]
-        void Room(TVIRoom room, NSError error);
+        void RoomDidFailToConnectWithError(TVIRoom room, NSError error);
 
         // @optional -(void)room:(TVIRoom * _Nonnull)room didDisconnectWithError:(NSError * _Nullable)error;
         [Export("room:didDisconnectWithError:")]
-        void Room(TVIRoom room, [NullAllowed] NSError error);
+        void RoomDidDisconnectWithError(TVIRoom room, [NullAllowed] NSError error);
 
         // @optional -(void)room:(TVIRoom * _Nonnull)room participantDidConnect:(TVIParticipant * _Nonnull)participant;
         [Export("room:participantDidConnect:")]
-        void Room(TVIRoom room, TVIParticipant participant);
+        void RoomParticipantDidConnect(TVIRoom room, TVIParticipant participant);
 
         // @optional -(void)room:(TVIRoom * _Nonnull)room participantDidDisconnect:(TVIParticipant * _Nonnull)participant;
         [Export("room:participantDidDisconnect:")]
-        void Room(TVIRoom room, TVIParticipant participant);
+        void RoomParticipantDidDisconnect(TVIRoom room, TVIParticipant participant);
 
         // @optional -(void)roomDidStartRecording:(TVIRoom * _Nonnull)room;
         [Export("roomDidStartRecording:")]
@@ -870,7 +898,7 @@ namespace Twilio.Video
     // @interface TVIScreenCapturer : NSObject <TVIVideoCapturer>
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
-    interface TVIScreenCapturer : ITVIVideoCapturer
+    interface TVIScreenCapturer : TVIVideoCapturer
     {
         // @property (readonly, getter = isCapturing, assign, atomic) BOOL capturing;
         [Export("capturing")]
@@ -920,14 +948,12 @@ namespace Twilio.Video
         // +(NSString * _Nonnull)version;
         [Static]
         [Export("version")]
-        [Verify(MethodToProperty)]
         string Version { get; }
 
         // +(TVILogLevel)logLevel;
         // +(void)setLogLevel:(TVILogLevel)logLevel;
         [Static]
         [Export("logLevel")]
-        [Verify(MethodToProperty)]
         TVILogLevel LogLevel { get; set; }
 
         // +(void)setLogLevel:(TVILogLevel)logLevel module:(TVILogModule)module;
@@ -937,7 +963,6 @@ namespace Twilio.Video
     }
 
     [Static]
-    [Verify(ConstantsInterfaceAssociation)]
     partial interface Constants
     {
         // extern const NSUInteger TVIVideoConstraintsMaximumFPS;
@@ -950,7 +975,7 @@ namespace Twilio.Video
 
         // extern const CMVideoDimensions TVIVideoConstraintsSizeNone;
         [Field("TVIVideoConstraintsSizeNone", "__Internal")]
-        CMVideoDimensions TVIVideoConstraintsSizeNone { get; }
+        IntPtr TVIVideoConstraintsSizeNone { get; }
 
         // extern const NSUInteger TVIVideoConstraintsFrameRateNone;
         [Field("TVIVideoConstraintsFrameRateNone", "__Internal")]
@@ -958,19 +983,19 @@ namespace Twilio.Video
 
         // extern const TVIAspectRatio TVIVideoConstraintsAspectRatioNone;
         [Field("TVIVideoConstraintsAspectRatioNone", "__Internal")]
-        TVIAspectRatio TVIVideoConstraintsAspectRatioNone { get; }
+        IntPtr TVIVideoConstraintsAspectRatioNone { get; }
 
         // extern const TVIAspectRatio TVIAspectRatio11x9;
         [Field("TVIAspectRatio11x9", "__Internal")]
-        TVIAspectRatio TVIAspectRatio11x9 { get; }
+        IntPtr TVIAspectRatio11x9 { get; }
 
         // extern const TVIAspectRatio TVIAspectRatio4x3;
         [Field("TVIAspectRatio4x3", "__Internal")]
-        TVIAspectRatio TVIAspectRatio4x3 { get; }
+        IntPtr TVIAspectRatio4x3 { get; }
 
         // extern const TVIAspectRatio TVIAspectRatio16x9;
         [Field("TVIAspectRatio16x9", "__Internal")]
-        TVIAspectRatio TVIAspectRatio16x9 { get; }
+        IntPtr TVIAspectRatio16x9 { get; }
     }
 
     // @interface TVIVideoConstraintsBuilder : NSObject
@@ -980,11 +1005,11 @@ namespace Twilio.Video
     {
         // @property (assign, nonatomic) CMVideoDimensions maxSize;
         [Export("maxSize", ArgumentSemantic.Assign)]
-        CMVideoDimensions MaxSize { get; set; }
+        IntPtr MaxSize { get; set; }
 
         // @property (assign, nonatomic) CMVideoDimensions minSize;
         [Export("minSize", ArgumentSemantic.Assign)]
-        CMVideoDimensions MinSize { get; set; }
+        IntPtr MinSize { get; set; }
 
         // @property (assign, nonatomic) NSUInteger maxFrameRate;
         [Export("maxFrameRate")]
@@ -996,7 +1021,7 @@ namespace Twilio.Video
 
         // @property (assign, nonatomic) TVIAspectRatio aspectRatio;
         [Export("aspectRatio", ArgumentSemantic.Assign)]
-        TVIAspectRatio AspectRatio { get; set; }
+        IntPtr AspectRatio { get; set; }
     }
 
     // typedef void (^TVIVideoConstraintsBuilderBlock)(TVIVideoConstraintsBuilder * _Nonnull);
@@ -1018,11 +1043,11 @@ namespace Twilio.Video
 
         // @property (readonly, assign, nonatomic) CMVideoDimensions maxSize;
         [Export("maxSize", ArgumentSemantic.Assign)]
-        CMVideoDimensions MaxSize { get; }
+        IntPtr MaxSize { get; }
 
         // @property (readonly, assign, nonatomic) CMVideoDimensions minSize;
         [Export("minSize", ArgumentSemantic.Assign)]
-        CMVideoDimensions MinSize { get; }
+        IntPtr MinSize { get; }
 
         // @property (readonly, assign, nonatomic) NSUInteger maxFrameRate;
         [Export("maxFrameRate")]
@@ -1034,7 +1059,7 @@ namespace Twilio.Video
 
         // @property (readonly, assign, nonatomic) TVIAspectRatio aspectRatio;
         [Export("aspectRatio", ArgumentSemantic.Assign)]
-        TVIAspectRatio AspectRatio { get; }
+        IntPtr AspectRatio { get; }
     }
 
     // @protocol TVIVideoRenderer <NSObject>
@@ -1090,7 +1115,7 @@ namespace Twilio.Video
 
         // @property (readonly, assign, nonatomic) CMVideoDimensions videoDimensions;
         [Export("videoDimensions", ArgumentSemantic.Assign)]
-        CMVideoDimensions VideoDimensions { get; }
+        IntPtr VideoDimensions { get; }
 
         // -(void)attach:(UIView * _Nonnull)view;
         [Export("attach:")]
@@ -1134,7 +1159,7 @@ namespace Twilio.Video
     {
         // @property (readonly, assign, nonatomic) CMVideoDimensions dimensions;
         [Export("dimensions", ArgumentSemantic.Assign)]
-        CMVideoDimensions Dimensions { get; }
+        IntPtr Dimensions { get; }
 
         // @property (readonly, assign, nonatomic) NSUInteger frameRate;
         [Export("frameRate")]
@@ -1191,7 +1216,7 @@ namespace Twilio.Video
 
         // @property (readonly, assign, nonatomic) CMVideoDimensions videoFrameDimensions;
         [Export("videoFrameDimensions", ArgumentSemantic.Assign)]
-        CMVideoDimensions VideoFrameDimensions { get; }
+        IntPtr VideoFrameDimensions { get; }
 
         // @property (readonly, assign, nonatomic) TVIVideoOrientation videoFrameOrientation;
         [Export("videoFrameOrientation", ArgumentSemantic.Assign)]

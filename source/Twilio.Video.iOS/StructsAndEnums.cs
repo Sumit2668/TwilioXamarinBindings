@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using CoreGraphics;
+using CoreFoundation;
+using CoreMedia;
+using CoreVideo;
+using Foundation;
 using ObjCRuntime;
+using UIKit;
 
 namespace Twilio.Video
 {
     [Native]
-    public enum TVIAudioOutput : nuint
+    public enum TVIAudioOutput : ulong
     {
         ideoChatDefault = 0,
         ideoChatSpeaker,
@@ -15,14 +20,14 @@ namespace Twilio.Video
     }
 
     [Native]
-    public enum TVITrackState : nuint
+    public enum TVITrackState : ulong
     {
         Ended = 0,
         Live
     }
 
     [Native]
-    public enum TVIVideoOrientation : nuint
+    public enum TVIVideoOrientation : ulong
     {
         Up = 0,
         Left,
@@ -34,32 +39,30 @@ namespace Twilio.Video
     {
         // CGAffineTransform TVIVideoOrientationMakeTransform (TVIVideoOrientation orientation);
         [DllImport("__Internal")]
-        [Verify(PlatformInvoke)]
         static extern CGAffineTransform TVIVideoOrientationMakeTransform(TVIVideoOrientation orientation);
 
         // BOOL TVIVideoOrientationIsRotated (TVIVideoOrientation orientation);
         [DllImport("__Internal")]
-        [Verify(PlatformInvoke)]
         static extern bool TVIVideoOrientationIsRotated(TVIVideoOrientation orientation);
 
         // TVIAspectRatio TVIAspectRatioMake (NSUInteger numerator, NSUInteger denominator);
         [DllImport("__Internal")]
-        [Verify(PlatformInvoke)]
         static extern TVIAspectRatio TVIAspectRatioMake(nuint numerator, nuint denominator);
     }
 
-    public enum TVIPixelFormat : uint
-    {
-        TVIPixelFormat32ARGB = kCVPixelFormatType_32ARGB,
-        TVIPixelFormat32BGRA = kCVPixelFormatType_32BGRA,
-        YUV420BiPlanarVideoRange = kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange,
-        YUV420BiPlanarFullRange = kCVPixelFormatType_420YpCbCr8BiPlanarFullRange,
-        YUV420PlanarVideoRange = kCVPixelFormatType_420YpCbCr8Planar,
-        YUV420PlanarFullRange = kCVPixelFormatType_420YpCbCr8PlanarFullRange
-    }
+    // TODO
+    //public enum TVIPixelFormat : ulong
+    //{
+    //    TVIPixelFormat32ARGB = kCVPixelFormatType_32ARGB,
+    //    TVIPixelFormat32BGRA = kCVPixelFormatType_32BGRA,
+    //    YUV420BiPlanarVideoRange = kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange,
+    //    YUV420BiPlanarFullRange = kCVPixelFormatType_420YpCbCr8BiPlanarFullRange,
+    //    YUV420PlanarVideoRange = kCVPixelFormatType_420YpCbCr8Planar,
+    //    YUV420PlanarFullRange = kCVPixelFormatType_420YpCbCr8PlanarFullRange
+    //}
 
     [Native]
-    public enum TVIVideoCaptureSource : nuint
+    public enum TVIVideoCaptureSource : ulong
     {
         FrontCamera = 0,
         BackCameraWide,
@@ -67,7 +70,7 @@ namespace Twilio.Video
     }
 
     [Native]
-    public enum TVIError : nuint
+    public enum TVIError : ulong
     {
         Unknown = 0,
         AccessTokenInvalidError = 20101,
@@ -114,14 +117,14 @@ namespace Twilio.Video
     }
 
     [Native]
-    public enum TVIIceTransportPolicy : nuint
+    public enum TVIIceTransportPolicy : ulong
     {
         All = 0,
         Relay = 1
     }
 
     [Native]
-    public enum TVIRoomState : nuint
+    public enum TVIRoomState : ulong
     {
         Connecting = 0,
         Connected,
@@ -129,7 +132,7 @@ namespace Twilio.Video
     }
 
     [Native]
-    public enum TVILogLevel : nuint
+    public enum TVILogLevel : ulong
     {
         Off = 0,
         Fatal,
@@ -142,7 +145,7 @@ namespace Twilio.Video
     }
 
     [Native]
-    public enum TVILogModule : nuint
+    public enum TVILogModule : ulong
     {
         Core = 0,
         Platform,
@@ -153,13 +156,13 @@ namespace Twilio.Video
     [StructLayout(LayoutKind.Sequential)]
     public struct TVIAspectRatio
     {
-        public nuint numerator;
+        public ulong numerator;
 
-        public nuint denominator;
+        public ulong denominator;
     }
 
     [Native]
-    public enum TVIVideoRenderingType : nuint
+    public enum TVIVideoRenderingType : ulong
     {
         Metal = 0,
         OpenGLES
