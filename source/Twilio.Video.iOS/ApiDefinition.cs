@@ -768,6 +768,8 @@ namespace Twilio.Video
         string Sid { get; }
     }
 
+    interface ITVIParticipantDelegate { }
+
     // @protocol TVIParticipantDelegate <NSObject>
     [Protocol, Model]
     [BaseType(typeof(NSObject))]
@@ -863,6 +865,8 @@ namespace Twilio.Video
         NSUuid Uuid { get; }
     }
 
+    interface ITVIRoomDelegate { }
+
     // @protocol TVIRoomDelegate <NSObject>
     [Protocol, Model]
     [BaseType(typeof(NSObject))]
@@ -900,7 +904,7 @@ namespace Twilio.Video
     // @interface TVIScreenCapturer : NSObject <TVIVideoCapturer>
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
-    interface TVIScreenCapturer : ITVIVideoCapturer
+    interface TVIScreenCapturer : TVIVideoCapturer
     {
         // @property (readonly, getter = isCapturing, assign, atomic) BOOL capturing;
         [Export("capturing")]
@@ -945,7 +949,7 @@ namespace Twilio.Video
         // +(TVIRoom * _Nonnull)connectWithOptions:(TVIConnectOptions * _Nonnull)options delegate:(id<TVIRoomDelegate> _Nullable)delegate;
         [Static]
         [Export("connectWithOptions:delegate:")]
-        TVIRoom ConnectWithOptions(TVIConnectOptions options, [NullAllowed] TVIRoomDelegate @delegate);
+        TVIRoom ConnectWithOptions(TVIConnectOptions options, [NullAllowed] ITVIRoomDelegate @delegate);
 
         // +(NSString * _Nonnull)version;
         [Static]
