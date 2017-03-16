@@ -3,7 +3,7 @@
   <metadata>
     <id>Twilio.Video.XamarinBinding</id>
     <title>Twilio Video for Xamarin</title>
-    <version>1.0.0.0</version>
+    <version>1.0.0.2</version>
     <authors>Twilio</authors>
     <owners>twilio</owners>
 	<projectUrl>https://github.com/dkornev/TwilioXamarinBindings</projectUrl>

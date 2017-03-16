@@ -261,6 +261,8 @@ namespace Twilio.Video
         void CaptureDidStart(bool success);
     }
 
+    interface ITVIVideoCapturer { }
+
     // @protocol TVIVideoCapturer <NSObject>
     [Protocol, Model]
     [BaseType(typeof(NSObject))]
@@ -619,12 +621,12 @@ namespace Twilio.Video
         // -(TVILocalVideoTrack * _Nullable)addVideoTrack:(BOOL)enabled capturer:(id<TVIVideoCapturer> _Nonnull)capturer;
         [Export("addVideoTrack:capturer:")]
         [return: NullAllowed]
-        TVILocalVideoTrack AddVideoTrack(bool enabled, TVIVideoCapturer capturer);
+        TVILocalVideoTrack AddVideoTrack(bool enabled, ITVIVideoCapturer capturer);
 
         // -(TVILocalVideoTrack * _Nullable)addVideoTrack:(BOOL)enabled capturer:(id<TVIVideoCapturer> _Nonnull)capturer constraints:(TVIVideoConstraints * _Nullable)constraints error:(NSError * _Nullable * _Nullable)error;
         [Export("addVideoTrack:capturer:constraints:error:")]
         [return: NullAllowed]
-        TVILocalVideoTrack AddVideoTrack(bool enabled, TVIVideoCapturer capturer, [NullAllowed] TVIVideoConstraints constraints, [NullAllowed] out NSError error);
+        TVILocalVideoTrack AddVideoTrack(bool enabled, ITVIVideoCapturer capturer, [NullAllowed] TVIVideoConstraints constraints, [NullAllowed] out NSError error);
 
         // -(BOOL)removeVideoTrack:(TVILocalVideoTrack * _Nonnull)track;
         [Export("removeVideoTrack:")]
@@ -898,7 +900,7 @@ namespace Twilio.Video
     // @interface TVIScreenCapturer : NSObject <TVIVideoCapturer>
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
-    interface TVIScreenCapturer : TVIVideoCapturer
+    interface TVIScreenCapturer : ITVIVideoCapturer
     {
         // @property (readonly, getter = isCapturing, assign, atomic) BOOL capturing;
         [Export("capturing")]
@@ -1062,6 +1064,8 @@ namespace Twilio.Video
         IntPtr AspectRatio { get; }
     }
 
+    interface ITVIVideoRenderer { }
+
     // @protocol TVIVideoRenderer <NSObject>
     [Protocol, Model]
     [BaseType(typeof(NSObject))]
@@ -1190,7 +1194,7 @@ namespace Twilio.Video
 
     // @interface TVIVideoViewRenderer : NSObject <TVIVideoRenderer>
     [BaseType(typeof(NSObject))]
-    interface TVIVideoViewRenderer : TVIVideoRenderer
+    interface TVIVideoViewRenderer : ITVIVideoRenderer
     {
         // -(instancetype _Nonnull)initWithDelegate:(id<TVIVideoViewRendererDelegate> _Nullable)delegate;
         [Export("initWithDelegate:")]
