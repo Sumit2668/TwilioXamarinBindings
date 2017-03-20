@@ -36,17 +36,20 @@ namespace Twilio.Video
     }
 
     static class CFunctions
-    {
+    { 
         // CGAffineTransform TVIVideoOrientationMakeTransform (TVIVideoOrientation orientation);
-        [DllImport("__Internal")]
+        //[DllImport("__Internal")]
+        [Export("TVIVideoOrientationMakeTransform")]
         static extern CGAffineTransform TVIVideoOrientationMakeTransform(TVIVideoOrientation orientation);
 
         // BOOL TVIVideoOrientationIsRotated (TVIVideoOrientation orientation);
-        [DllImport("__Internal")]
+        //[DllImport("__Internal")]
+        [Export("TVIVideoOrientationIsRotated")]
         static extern bool TVIVideoOrientationIsRotated(TVIVideoOrientation orientation);
 
         // TVIAspectRatio TVIAspectRatioMake (NSUInteger numerator, NSUInteger denominator);
-        [DllImport("__Internal")]
+        //[DllImport("__Internal")]
+        [Export("TVIAspectRatioMake")]
         static extern TVIAspectRatio TVIAspectRatioMake(nuint numerator, nuint denominator);
     }
 
