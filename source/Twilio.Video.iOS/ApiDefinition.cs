@@ -9,33 +9,6 @@ using UIKit;
 
 namespace Twilio.Video
 {
-    public static class ConstantsExtensions
-    {
-        public static CMVideoDimensions IntPtrToCMVideoDimensions(IntPtr ptr)
-        {
-            var dimensions = new CMVideoDimensions();
-
-            if (ptr != IntPtr.Zero)
-            {
-                dimensions = (CMVideoDimensions)Marshal.PtrToStructure<CMVideoDimensions>(ptr);
-            }
-
-            return dimensions;
-        }
-
-        public static TVIAspectRatio IntPtrToTVIAspectRatio(IntPtr ptr)
-        {
-            var dimensions = new TVIAspectRatio();
-
-            if (ptr != IntPtr.Zero)
-            {
-                dimensions = (TVIAspectRatio)Marshal.PtrToStructure<TVIAspectRatio>(ptr);
-            }
-
-            return dimensions;
-        }
-    }
-
     // @interface TVIAudioConstraintsBuilder : NSObject
     [BaseType(typeof(NSObject))]
     [DisableDefaultCtor]
