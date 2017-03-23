@@ -38,19 +38,18 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TwilioVideo.linkwith.cs">
-      <DependentUpon>TwilioVideo.a</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ObjcBindingNativeLibrary Include="TwilioVideo.a" />
+    <NativeReference Include="Native References/TwilioVideo.framework">
+      <Kind>Framework</Kind>
+    </NativeReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

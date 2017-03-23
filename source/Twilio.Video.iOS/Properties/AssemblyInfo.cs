@@ -1,6 +1,9 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
-
+using ObjCRuntime;
+using System.Runtime.Versioning;
+using System.Security;
+using System.Security.Permissions;
 using Foundation;
 
 // This attribute allows you to mark your assemblies as “safe to link”.
@@ -20,6 +23,13 @@ using Foundation;
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+[assembly: LinkWith("TwilioVideo.framework",
+    LinkTarget.ArmV7 | LinkTarget.x86_64 | LinkTarget.ArmV7s | LinkTarget.Simulator | LinkTarget.Simulator64 | LinkTarget.Arm64 | LinkTarget.i386,
+    Frameworks = "AudioToolbox VideoToolbox AVFoundation CoreTelephony GLKit CoreMedia SystemConfiguration",
+    LinkerFlags = "-ObjC -lstdc++ -lc++ -lz -dead_strip",
+    IsCxx = true,
+    SmartLink = true,
+    ForceLoad = true)]
 
 // The assembly version has the format "{Major}.{Minor}.{Build}.{Revision}".
 // The form "{Major}.{Minor}.*" will automatically update the build and revision,

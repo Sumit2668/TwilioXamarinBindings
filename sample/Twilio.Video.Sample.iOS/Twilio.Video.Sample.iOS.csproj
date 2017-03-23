@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="TwilioVideoDelegate.cs" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,7 +102,7 @@
     <Content Include="Entitlements.plist" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\source\Twilio.Video.iOS\Twilio.Video.iOS.csproj">
+    <ProjectReference Include="..\..\source\Twilio.Video.iOS\Twilio.Video.iOS.csproj">
       <Project>{a9879158-3156-42c7-bfbd-9b65e50a5f92}</Project>
       <Name>Twilio.Video.iOS</Name>
     </ProjectReference>

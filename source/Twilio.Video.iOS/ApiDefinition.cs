@@ -207,7 +207,7 @@ namespace Twilio.Video
     {
         // @property (assign, nonatomic) CMVideoDimensions dimensions;
         [Export("dimensions", ArgumentSemantic.Assign)]
-        IntPtr Dimensions { get; set; }
+        CMVideoDimensions Dimensions { get; set; }
 
         // @property (assign, nonatomic) NSUInteger frameRate;
         [Export("frameRate")]
@@ -354,7 +354,7 @@ namespace Twilio.Video
 
         // @property (readonly, assign, nonatomic) CMVideoDimensions previewDimensions;
         [Export("previewDimensions", ArgumentSemantic.Assign)]
-        IntPtr PreviewDimensions { get; }
+        CMVideoDimensions PreviewDimensions { get; }
 
         // @property (readonly, nonatomic, strong) TVICameraPreviewView * _Nonnull previewView;
         [Export("previewView", ArgumentSemantic.Strong)]
@@ -667,7 +667,7 @@ namespace Twilio.Video
     {
         // @property (readonly, assign, nonatomic) CMVideoDimensions captureDimensions;
         [Export("captureDimensions", ArgumentSemantic.Assign)]
-        IntPtr CaptureDimensions { get; }
+        CMVideoDimensions CaptureDimensions { get; }
 
         // @property (readonly, assign, nonatomic) NSUInteger captureFrameRate;
         [Export("captureFrameRate")]
@@ -675,7 +675,7 @@ namespace Twilio.Video
 
         // @property (readonly, assign, nonatomic) CMVideoDimensions dimensions;
         [Export("dimensions", ArgumentSemantic.Assign)]
-        IntPtr Dimensions { get; }
+        CMVideoDimensions Dimensions { get; }
 
         // @property (readonly, assign, nonatomic) NSUInteger frameRate;
         [Export("frameRate")]
@@ -984,11 +984,11 @@ namespace Twilio.Video
     {
         // @property (assign, nonatomic) CMVideoDimensions maxSize;
         [Export("maxSize", ArgumentSemantic.Assign)]
-        IntPtr MaxSize { get; set; }
+        CMVideoDimensions MaxSize { get; set; }
 
         // @property (assign, nonatomic) CMVideoDimensions minSize;
         [Export("minSize", ArgumentSemantic.Assign)]
-        IntPtr MinSize { get; set; }
+        CMVideoDimensions MinSize { get; set; }
 
         // @property (assign, nonatomic) NSUInteger maxFrameRate;
         [Export("maxFrameRate")]
@@ -1022,11 +1022,11 @@ namespace Twilio.Video
 
         // @property (readonly, assign, nonatomic) CMVideoDimensions maxSize;
         [Export("maxSize", ArgumentSemantic.Assign)]
-        IntPtr MaxSize { get; }
+        CMVideoDimensions MaxSize { get; }
 
         // @property (readonly, assign, nonatomic) CMVideoDimensions minSize;
         [Export("minSize", ArgumentSemantic.Assign)]
-        IntPtr MinSize { get; }
+        CMVideoDimensions MinSize { get; }
 
         // @property (readonly, assign, nonatomic) NSUInteger maxFrameRate;
         [Export("maxFrameRate")]
@@ -1096,7 +1096,7 @@ namespace Twilio.Video
 
         // @property (readonly, assign, nonatomic) CMVideoDimensions videoDimensions;
         [Export("videoDimensions", ArgumentSemantic.Assign)]
-        IntPtr VideoDimensions { get; }
+        CMVideoDimensions VideoDimensions { get; }
 
         // -(void)attach:(UIView * _Nonnull)view;
         [Export("attach:")]
@@ -1140,7 +1140,7 @@ namespace Twilio.Video
     {
         // @property (readonly, assign, nonatomic) CMVideoDimensions dimensions;
         [Export("dimensions", ArgumentSemantic.Assign)]
-        IntPtr Dimensions { get; }
+        CMVideoDimensions Dimensions { get; }
 
         // @property (readonly, assign, nonatomic) NSUInteger frameRate;
         [Export("frameRate")]
@@ -1197,7 +1197,7 @@ namespace Twilio.Video
 
         // @property (readonly, assign, nonatomic) CMVideoDimensions videoFrameDimensions;
         [Export("videoFrameDimensions", ArgumentSemantic.Assign)]
-        IntPtr VideoFrameDimensions { get; }
+        CMVideoDimensions VideoFrameDimensions { get; }
 
         // @property (readonly, assign, nonatomic) TVIVideoOrientation videoFrameOrientation;
         [Export("videoFrameOrientation", ArgumentSemantic.Assign)]
