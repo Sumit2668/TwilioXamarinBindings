@@ -86,7 +86,9 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="TwilioVideoDelegate.cs" />
+    <Compile Include="TwilioParticipantDelegate.cs" />
+    <Compile Include="TwilioRoomDelegate.cs" />
+    <Compile Include="TwilioVideoViewDelegate.cs" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
