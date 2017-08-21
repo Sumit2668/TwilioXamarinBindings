@@ -8,7 +8,7 @@ Twilio.Video 1.3.1 [![NuGet][video-nuget-img]][video-nuget-link]
 
 You will need to download Twilio.Video iOS native SDK from https://www.twilio.com/docs/api/video/download-video-sdks#ios-sdk and copy TwilioVideo.framework folder to source\Twilio.Video.iOS\Native References directory
 
-[video-nuget-img]: https://img.shields.io/badge/nuget-1.3.1.svg
+[video-nuget-img]: https://img.shields.io/badge/nuget-1.3.1-blue.svg
 [video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.XamarinBinding
 
 ## Sample
