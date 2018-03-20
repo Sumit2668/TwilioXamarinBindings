@@ -3,9 +3,9 @@
 Twilio Bindings for Xamarin apps
 
 ### iOS
-Twilio.Video 1.3.8 [![NuGet][video-nuget-img]][video-nuget-link]
+[![NuGet][ios-video-nuget-img]][ios-video-nuget-link]
 ### Android
-Twilio.Video 1.0.1 - will be added soon
+[![NuGet][android-video-nuget-img]][android-video-nuget-link]
 
 ## How to Build
 
@@ -29,12 +29,14 @@ Download aar/jar version you needed from https://bintray.com/twilio/releases/vid
 
 -keepattributes InnerClasses
 
-[video-nuget-img]: https://img.shields.io/badge/nuget-1.3.8-blue.svg
-[video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.XamarinBinding
+[ios-video-nuget-img]: https://img.shields.io/badge/nuget-1.3.8-blue.svg
+[ios-video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.XamarinBinding
+[android-video-nuget-img]: https://img.shields.io/badge/nuget-1.3.13-blue.svg
+[android-video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.Android.XamarinBinding
 
 ## Sample
 
-#### Check official Twilio quick startguides for samples
+#### Check official Twilio quickstart guides for samples
 
 [TwilioParticipantDelegate.cs](sample/Twilio.Video.Sample.iOS/TwilioParticipantDelegate.cs)
 
