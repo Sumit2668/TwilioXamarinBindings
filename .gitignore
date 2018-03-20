@@ -240,5 +240,3 @@ externals/
 
 source/Twilio.Video.iOS/TwilioVideo.a
 source/Native References/
-
-source/TwilioVideo.Android/Jars/*.aar
