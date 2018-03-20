@@ -20,6 +20,8 @@ Download aar/jar version you needed from https://bintray.com/twilio/releases/vid
 
 ## Sample
 
+#### Check official Twilio quick startguides for samples
+
 [TwilioParticipantDelegate.cs](sample/Twilio.Video.Sample.iOS/TwilioParticipantDelegate.cs)
 
 [TwilioRoomDelegate.cs](sample/Twilio.Video.Sample.iOS/TwilioRoomDelegate.cs)
