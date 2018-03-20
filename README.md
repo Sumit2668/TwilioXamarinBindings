@@ -13,7 +13,7 @@ Twilio.Video 1.0.1 - will be added soon
 You will need to download Twilio.Video iOS native SDK from https://www.twilio.com/docs/api/video/download-video-sdks#ios-sdk and copy TwilioVideo.framework folder to source\Twilio.Video.iOS\Native References directory
 
 ### Android
-Download jar version you needed from https://bintray.com/twilio/releases/video-android and copy it to source\Twilio.Video.Android\Jars
+Download aar/jar version you needed from https://bintray.com/twilio/releases/video-android and copy it to source\TwilioVideo.Android\Jars
 
 [video-nuget-img]: https://img.shields.io/badge/nuget-1.3.8-blue.svg
 [video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.XamarinBinding
