@@ -15,6 +15,20 @@ You will need to download Twilio.Video iOS native SDK from https://www.twilio.co
 ### Android
 Download aar/jar version you needed from https://bintray.com/twilio/releases/video-android and copy it to source\TwilioVideo.Android\Jars
 
+#### Proguard settings
+
+-keep class com.getkeepsafe.relinker.** { *; }
+
+-keep class com.webrtc.** { *; }
+
+-keep class com.webrtc.voiceengine.** { *; }
+
+-keepclassmembers class com.webrtc.** { *; }
+
+-keepclassmembernames class com.webrtc.** { *; }
+
+-keepattributes InnerClasses
+
 [video-nuget-img]: https://img.shields.io/badge/nuget-1.3.8-blue.svg
 [video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.XamarinBinding
 
