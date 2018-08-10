@@ -18,11 +18,16 @@ Twilio SDKs Bindings for Xamarin apps
 ### Twilio.Video iOS (2.* update wip)
 You will need to download Twilio.Video iOS native SDK from https://www.twilio.com/docs/api/video/download-video-sdks#ios-sdk and copy TwilioVideo.framework folder to source\Twilio.Video.iOS\Native References directory
 
+
 ### Twilio.Voice iOS 2.0.5 (August 3, 2018)
 Download Programmable Voice iOS SDK 2.0.5 static library from https://media.twiliocdn.com/sdk/ios/voice/releases/2.0.5/twilio-voice-ios-static-2.0.5.tar.bz2 and copy libTwilioVoice.a library into the source/Twilio.Voice.iOS directory
 
+Add --registrar:static as additional mtouch arguments on iOS Build dialog for your iOS application
+
+
 ### Twilio.Video Android (2.* update wip)
 Download aar/jar version you needed from https://bintray.com/twilio/releases/video-android and copy it to source\TwilioVideo.Android\Jars
+
 
 #### Proguard settings
 
