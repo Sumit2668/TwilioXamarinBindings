@@ -6,8 +6,8 @@ Twilio SDKs Bindings for Xamarin apps
 [![NuGet][ios-voice-nuget-img]][ios-voice-nuget-link]
 [![NuGet][android-video-nuget-img]][android-video-nuget-link]
 
-[ios-video-nuget-img]: https://img.shields.io/badge/nuget-1.3.8-blue.svg?label=Twilio.Video.iOS%20NuGet
-[ios-video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.XamarinBinding
+[ios-video-nuget-img]: https://img.shields.io/badge/nuget-1.4.2-blue.svg?label=Twilio.Video.iOS%20NuGet
+[ios-video-nuget-link]: https://github.com/dkornev/TwilioXamarinBindings
 [ios-voice-nuget-img]: https://img.shields.io/badge/nuget-2.0.5-blue.svg?label=Twilio.Voice.iOS%20NuGet
 [ios-voice-nuget-link]: https://github.com/dkornev/TwilioXamarinBindings
 [android-video-nuget-img]: https://img.shields.io/badge/nuget-1.3.13-blue.svg?label=Twilio.Video.Android%20NuGet
@@ -15,8 +15,10 @@ Twilio SDKs Bindings for Xamarin apps
 
 ## How to Build
 
-### Twilio.Video iOS (2.* update wip)
-You will need to download Twilio.Video iOS native SDK from https://www.twilio.com/docs/api/video/download-video-sdks#ios-sdk and copy TwilioVideo.framework folder to source\Twilio.Video.iOS\Native References directory
+### Twilio.Video iOS 1.4.2 (2.* update wip)
+Download Twilio Video SDK iOS 1.4.2 https://github.com/twilio/twilio-video-ios/releases/download/1.4.2/TwilioVideo.framework.zip and copy TwilioVideo.framework into the source\Twilio.Video.iOS\Native References directory
+
+Add --registrar:static as additional mtouch arguments on iOS Build dialog for your iOS application
 
 
 ### Twilio.Voice iOS 2.0.5 (August 3, 2018)
