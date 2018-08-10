@@ -238,5 +238,5 @@ _Pvt_Extensions
 tools/
 externals/
 
-source/Twilio.Video.iOS/TwilioVideo.a
+source/Twilio.Video.iOS/Native References
 source/Twilio.Voice.iOS/libTwilioVoice.a

@@ -8,7 +8,7 @@ using Foundation;
 using ObjCRuntime;
 using UIKit;
 
-namespace Twilio.Video
+namespace Twilio.Video.iOS
 {
 	[Native]
 	public enum TVIAudioOutput : ulong
