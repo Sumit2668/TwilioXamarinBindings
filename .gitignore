@@ -239,4 +239,4 @@ tools/
 externals/
 
 source/Twilio.Video.iOS/TwilioVideo.a
-source/Native References/
+source/Twilio.Voice.iOS/libTwilioVoice.a
