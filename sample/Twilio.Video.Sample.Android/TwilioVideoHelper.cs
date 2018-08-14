@@ -9,7 +9,7 @@ using TwilioVideo;
 using AudioTrack = TwilioVideo.AudioTrack;
 using Android.Hardware;
 
-public class TwilioVideoHelper : Java.Lang.Object, Room.IListener, RemoteParticipant.IListener
+public class TwilioVideoHelper : Java.Lang.Object, Room.IListener
 {
     public class Cameras
     {
@@ -77,8 +77,8 @@ public class TwilioVideoHelper : Java.Lang.Object, Room.IListener, RemotePartici
 
     protected LocalVideoTrack CurrentVideoTrack { get; private set; }
     protected LocalAudioTrack CurrentAudioTrack { get; private set; }
-    protected VideoTrack RemoteVideoTrack { get; private set; }
-    protected AudioTrack RemoteAudioTrack { get; private set; }
+    protected IVideoTrackPublication RemoteVideoTrack { get; private set; }
+    protected IAudioTrackPublication RemoteAudioTrack { get; private set; }
     protected CameraCapturer VideoCapturer { get; private set; }
     protected RemoteParticipant Participant { get; private set; }
     protected Room CurrentRoom { get; private set; }
@@ -136,18 +136,23 @@ public class TwilioVideoHelper : Java.Lang.Object, Room.IListener, RemotePartici
         if (CurrentVideoTrack != null)
             _listener.SetLocalVideoTrack(CurrentVideoTrack);
         if (RemoteVideoTrack != null)
-            _listener.SetRemoteVideoTrack(RemoteVideoTrack);
+            _listener.SetRemoteVideoTrack(RemoteVideoTrack.VideoTrack);
         if (Timer.IsRunning)
             _listener.SetCallTime((int)Timer.Elapsed.TotalSeconds);
     }
 
+    void DropRenderers(IVideoTrackPublication track)
+    {
+        if (track?.VideoTrack.Renderers?.Any() == true)
+            foreach (var r in track.VideoTrack.Renderers.ToArray())
+                track.VideoTrack.RemoveRenderer(r);
+    }
     void DropRenderers(VideoTrack track)
     {
         if (track?.Renderers?.Any() == true)
             foreach (var r in track.Renderers.ToArray())
                 track.RemoveRenderer(r);
     }
-
     public void Unbind(IListener listener)
     {
         //LogHelper.Call(GetType(), listener + " vs " + _listener);
@@ -256,52 +261,52 @@ public class TwilioVideoHelper : Java.Lang.Object, Room.IListener, RemotePartici
 
     #region Media.Listener
 
-    public void OnAudioTrackAdded(RemoteParticipant participant, AudioTrack audioTrack)
+    public void OnAudioTrackAdded(RemoteParticipant participant, IAudioTrackPublication audioTrack)
     {
         //LogHelper.Call(GetType(), audioTrack.TrackId);
         RemoteAudioTrack = audioTrack;
     }
 
-    public void OnAudioTrackDisabled(RemoteParticipant participant, AudioTrack audioTrack)
+    public void OnAudioTrackDisabled(RemoteParticipant participant, IAudioTrackPublication audioTrack)
     {
         //LogHelper.Call(GetType(), audioTrack.TrackId);
     }
 
-    public void OnAudioTrackEnabled(RemoteParticipant participant, AudioTrack audioTrack)
+    public void OnAudioTrackEnabled(RemoteParticipant participant, IAudioTrackPublication audioTrack)
     {
         //LogHelper.Call(GetType(), audioTrack.TrackId);
     }
 
-    public void OnAudioTrackRemoved(RemoteParticipant participant, AudioTrack audioTrack)
+    public void OnAudioTrackRemoved(RemoteParticipant participant, IAudioTrackPublication audioTrack)
     {
         //LogHelper.Call(GetType(), audioTrack.TrackId);
-        if (RemoteAudioTrack.TrackId == audioTrack.TrackId)
+        if (RemoteAudioTrack.TrackSid == audioTrack.TrackSid)
             RemoteAudioTrack = null;
     }
 
-    public void OnVideoTrackAdded(RemoteParticipant participant, VideoTrack videoTrack)
+    public void OnVideoTrackAdded(RemoteParticipant participant, IVideoTrackPublication videoTrack)
     {
         //LogHelper.Call(GetType(), videoTrack.TrackId);
         RemoteVideoTrack = videoTrack;
-        _listener?.SetRemoteVideoTrack(RemoteVideoTrack);
+        _listener?.SetRemoteVideoTrack(RemoteVideoTrack.VideoTrack);
     }
 
-    public void OnVideoTrackDisabled(RemoteParticipant participant, VideoTrack videoTrack)
+    public void OnVideoTrackDisabled(RemoteParticipant participant, IVideoTrackPublication videoTrack)
     {
         //LogHelper.Call(GetType(), videoTrack.TrackId);
     }
 
-    public void OnVideoTrackEnabled(RemoteParticipant participant, VideoTrack videoTrack)
+    public void OnVideoTrackEnabled(RemoteParticipant participant, IVideoTrackPublication videoTrack)
     {
         //LogHelper.Call(GetType(), videoTrack.TrackId);
     }
 
-    public void OnVideoTrackRemoved(RemoteParticipant participant, VideoTrack videoTrack)
+    public void OnVideoTrackRemoved(RemoteParticipant participant, IVideoTrackPublication videoTrack)
     {
         //LogHelper.Call(GetType(), videoTrack.TrackId);
-        if (RemoteVideoTrack.TrackId != videoTrack.TrackId)
+        if (RemoteVideoTrack.TrackSid != videoTrack.TrackSid)
             return;
-        _listener?.RemoveRemoteVideoTrack(RemoteVideoTrack);
+        _listener?.RemoveRemoteVideoTrack(RemoteVideoTrack.VideoTrack);
         RemoteVideoTrack = null;
     }
 
@@ -342,7 +347,7 @@ public class TwilioVideoHelper : Java.Lang.Object, Room.IListener, RemotePartici
     {
         //LogHelper.Call(GetType(), room.Name + " participant=" + participant.Identity);
         Participant = participant;
-        Participant.SetListener(this);
+        //Participant.SetListener(this);
         Timer.Restart();
         _listener?.OnParticipantConnected(participant.Identity);
         var videoTrack = Participant.VideoTracks.FirstOrDefault();
@@ -355,7 +360,7 @@ public class TwilioVideoHelper : Java.Lang.Object, Room.IListener, RemotePartici
         //LogHelper.Call(GetType(), room.Name + " participant=" + participant.Identity);
         if (Participant?.Identity != participant.Identity)
             return;
-        Participant.SetListener(null);
+        //Participant.SetListener(null);
         Participant = null;
         _listener?.OnParticipantDisconnected(participant.Identity);
         OnFinishConversation(StopReason.ParticipantDisconnected);
