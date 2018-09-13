@@ -9,7 +9,7 @@ using TwilioVideo;
 using AudioTrack = TwilioVideo.AudioTrack;
 using Android.Hardware;
 
-public class TwilioVideoHelper : Java.Lang.Object, Room.IListener
+public class TwilioVideoHelper : Java.Lang.Object, Room.IListener, RemoteParticipant.IListener
 {
     public class Cameras
     {
@@ -419,5 +419,90 @@ public class TwilioVideoHelper : Java.Lang.Object, Room.IListener
         FinishCall();
 
         base.Dispose(disposing);
+    }
+
+    public void OnAudioTrackDisabled(RemoteParticipant p0, RemoteAudioTrackPublication p1)
+    {
+    }
+
+    public void OnAudioTrackEnabled(RemoteParticipant p0, RemoteAudioTrackPublication p1)
+    {
+    }
+
+    public void OnAudioTrackPublished(RemoteParticipant p0, RemoteAudioTrackPublication p1)
+    {
+    }
+
+    public void OnAudioTrackSubscribed(RemoteParticipant p0, RemoteAudioTrackPublication p1, RemoteAudioTrack p2)
+    {
+        RemoteAudioTrack = p2;
+    }
+
+    public void OnAudioTrackSubscriptionFailed(RemoteParticipant p0, RemoteAudioTrackPublication p1, TwilioException p2)
+    {
+    }
+
+    public void OnAudioTrackUnpublished(RemoteParticipant p0, RemoteAudioTrackPublication p1)
+    {
+    }
+
+    public void OnAudioTrackUnsubscribed(RemoteParticipant p0, RemoteAudioTrackPublication p1, RemoteAudioTrack p2)
+    {
+        if (RemoteAudioTrack.Name == p2.Name)
+            RemoteAudioTrack = null;
+    }
+
+    public void OnDataTrackPublished(RemoteParticipant p0, RemoteDataTrackPublication p1)
+    {
+    }
+
+    public void OnDataTrackSubscribed(RemoteParticipant p0, RemoteDataTrackPublication p1, RemoteDataTrack p2)
+    {
+    }
+
+    public void OnDataTrackSubscriptionFailed(RemoteParticipant p0, RemoteDataTrackPublication p1, TwilioException p2)
+    {
+    }
+
+    public void OnDataTrackUnpublished(RemoteParticipant p0, RemoteDataTrackPublication p1)
+    {
+    }
+
+    public void OnDataTrackUnsubscribed(RemoteParticipant p0, RemoteDataTrackPublication p1, RemoteDataTrack p2)
+    {
+    }
+
+    public void OnVideoTrackDisabled(RemoteParticipant p0, RemoteVideoTrackPublication p1)
+    {
+    }
+
+    public void OnVideoTrackEnabled(RemoteParticipant p0, RemoteVideoTrackPublication p1)
+    {
+    }
+
+    public void OnVideoTrackPublished(RemoteParticipant p0, RemoteVideoTrackPublication p1)
+    {
+    }
+
+    public void OnVideoTrackSubscribed(RemoteParticipant p0, RemoteVideoTrackPublication p1, RemoteVideoTrack p2)
+    {
+        RemoteVideoTrack = p2;
+        _listener?.SetRemoteVideoTrack(RemoteVideoTrack);
+    }
+
+    public void OnVideoTrackSubscriptionFailed(RemoteParticipant p0, RemoteVideoTrackPublication p1, TwilioException p2)
+    {
+    }
+
+    public void OnVideoTrackUnpublished(RemoteParticipant p0, RemoteVideoTrackPublication p1)
+    {
+    }
+
+    public void OnVideoTrackUnsubscribed(RemoteParticipant p0, RemoteVideoTrackPublication p1, RemoteVideoTrack p2)
+    {
+        if (RemoteVideoTrack.Name != p2.Name)
+            return;
+        _listener?.RemoveRemoteVideoTrack(RemoteVideoTrack);
+        RemoteVideoTrack = null;
     }
 }

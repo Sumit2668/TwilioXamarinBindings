@@ -72,7 +72,8 @@
   <attr path="/api/package[@name='org.webrtc']/class[@name='VideoRendererGui']/method[@name='dispose' and count(parameter)=0]" name="hidden">true</attr>
 
   <remove-node path="/api/package[@name='org.webrtc']/class[@name='NetworkMonitorAutoDetect.NetworkInformation']/field[@name='handle']" />
-  <remove-node path="/api/package[@name='com.twilio.video']/class[@name='RemoteDataTrack']" />
+  <attr path="api/package[@name='com.twilio.video']/interface[@name='RemoteDataTrack.Listener']/method[@name='onMessage' and count(parameter)=2 and   parameter[2][@type='java.lang.String']]" name="argsType">RDTListenerMessageEventArgs</attr>
+  <attr path="api/package[@name='com.twilio.video']/interface[@name='RemoteDataTrack.Listener']/method[@name='onMessage' and count(parameter)=2 and parameter[2][@type='java.lang.String']]" name="managedName">onMessage1</attr>
 
   <!--enums-->
   <!--<remove-node path="/api/package[@name='com.twilio.video']/class[@name='CameraCapturer.CameraSource']" />
