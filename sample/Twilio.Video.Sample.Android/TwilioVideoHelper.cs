@@ -347,7 +347,7 @@ public class TwilioVideoHelper : Java.Lang.Object, Room.IListener, RemotePartici
     {
         //LogHelper.Call(GetType(), room.Name + " participant=" + participant.Identity);
         Participant = participant;
-        //Participant.SetListener(this);
+        Participant.SetListener(this);
         Timer.Restart();
         _listener?.OnParticipantConnected(participant.Identity);
         var videoTrack = Participant.VideoTracks.FirstOrDefault();
@@ -360,7 +360,7 @@ public class TwilioVideoHelper : Java.Lang.Object, Room.IListener, RemotePartici
         //LogHelper.Call(GetType(), room.Name + " participant=" + participant.Identity);
         if (Participant?.Identity != participant.Identity)
             return;
-        //Participant.SetListener(null);
+        Participant.SetListener(null);
         Participant = null;
         _listener?.OnParticipantDisconnected(participant.Identity);
         OnFinishConversation(StopReason.ParticipantDisconnected);
