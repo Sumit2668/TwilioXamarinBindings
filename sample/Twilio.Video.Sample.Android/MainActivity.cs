@@ -31,8 +31,9 @@ namespace Twilio.Video.Sample.Android
          */
         // OPTION 1- Generate an access token from the getting started portal
         // https://www.twilio.com/console/video/dev-tools/testing-tools
-        private const string TWILIO_ACCESS_TOKEN = "YOUR_TOKEN";
-        private const string RoomName = "TestRoom";
+        //private const string TWILIO_ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzFmMDdhZDgwMjE5MzI2MmFkMGRkYWNiYzdhN2E4YjIxLTE1MzY4MTk4MjkiLCJpc3MiOiJTSzFmMDdhZDgwMjE5MzI2MmFkMGRkYWNiYzdhN2E4YjIxIiwic3ViIjoiQUNkYmViNzQ0MmQ3MzI1YjYwOWEyOTM0Yzc2ZGIxNDgzYiIsImV4cCI6MTUzNjgyMzQyOSwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiRGV2aWNlMSIsInZpZGVvIjp7InJvb20iOiJaT0xMUm9vbSJ9fX0.8XCoBDwGOTRFArrPgV9NnzSglMrxTMqDBfcBtMQae6M";
+        private const string TWILIO_ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzFmMDdhZDgwMjE5MzI2MmFkMGRkYWNiYzdhN2E4YjIxLTE1MzY4MTk5MTgiLCJpc3MiOiJTSzFmMDdhZDgwMjE5MzI2MmFkMGRkYWNiYzdhN2E4YjIxIiwic3ViIjoiQUNkYmViNzQ0MmQ3MzI1YjYwOWEyOTM0Yzc2ZGIxNDgzYiIsImV4cCI6MTUzNjgyMzUxOCwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiRGV2aWNlMiIsInZpZGVvIjp7InJvb20iOiJaT0xMUm9vbSJ9fX0.IY93bAPteWK7hqjM1ClvjfzBsu6peTGzO6eMXKebIJ8";
+        private const string RoomName = "ZOLLRoom";
 
         const int PermissionsRequestCode = 1;
 
@@ -214,7 +215,7 @@ namespace Twilio.Video.Sample.Android
 
         public void SetLocalVideoTrack(LocalVideoTrack videoTrack)
         {
-            var trackId = videoTrack?.TrackId;
+            var trackId = videoTrack?.Name;
             if (_localVideoTrackId == trackId)
                 return;
             _localVideoTrackId = trackId;
@@ -223,7 +224,7 @@ namespace Twilio.Video.Sample.Android
 
         public void SetRemoteVideoTrack(TwilioVideo.VideoTrack videoTrack)
         {
-            var trackId = videoTrack?.TrackId;
+            var trackId = videoTrack?.Name;
             if (_remoteVideoTrackId == trackId)
                 return;
             _remoteVideoTrackId = trackId;
