@@ -54,3 +54,12 @@ Download aar/jar version you needed from https://bintray.com/twilio/releases/vid
 [TwilioRoomDelegate.cs](sample/Twilio.Video.Sample.iOS/TwilioRoomDelegate.cs)
 
 [TwilioVideoViewDelegate.cs](sample/Twilio.Video.Sample.iOS/TwilioVideoViewDelegate.cs)
+
+
+### Contributions
+Members of the community have contributed to improving and update bindings:
+
+ - @codeanees
+
+If you have a bugfix or an update you'd like to add, please open an issue. 
+All pull requests should be opened against the `master` branch.
