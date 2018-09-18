@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twilio.Video.Sample.Android
 		{72204651-F86D-4E85-9EB3-92E5DB4D1C0D} = {72204651-F86D-4E85-9EB3-92E5DB4D1C0D}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwilioVideo.Android", "source\TwilioVideo.Android\TwilioVideo.Android.csproj", "{72204651-F86D-4E85-9EB3-92E5DB4D1C0D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twilio.Video.Android", "source\Twilio.Video.Android\v2\Twilio.Video.Android.csproj", "{72204651-F86D-4E85-9EB3-92E5DB4D1C0D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twilio.Voice.iOS", "source\Twilio.Voice.iOS\Twilio.Voice.iOS.csproj", "{FDE9E264-0434-4E83-BE20-0C2C710F44F8}"
 EndProject

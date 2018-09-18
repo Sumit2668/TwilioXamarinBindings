@@ -1,0 +1,43 @@
+﻿<enum-field-mappings>
+  <!--
+  This example converts the constants Fragment_id, Fragment_name,
+  and Fragment_tag from android.support.v4.app.FragmentActivity.FragmentTag
+  to an enum called Android.Support.V4.App.FragmentTagType with values
+  Id, Name, and Tag.
+  
+  <mapping jni-class="android/support/v4/app/FragmentActivity$FragmentTag" clr-enum-type="Android.Support.V4.App.FragmentTagType">
+    <field jni-name="Fragment_name" clr-name="Name" value="0" />
+    <field jni-name="Fragment_id" clr-name="Id" value="1" />
+    <field jni-name="Fragment_tag" clr-name="Tag" value="2" />
+  </mapping>
+  -->
+
+  <!--
+  <mapping jni-class="com/webrtc/PeerConnection$IceGatheringState" clr-enum-type="Com.Webrtc.IceGatheringState">
+    <field jni-name="NEW" clr-name="Name" value="0" />
+    <field jni-name="GATHERING" clr-name="Gathering" value="1" />
+    <field jni-name="COMPLETE" clr-name="Complete" value="2" />
+  </mapping>
+
+  <mapping jni-class="com/twilio/video/AudioOutput" clr-enum-type="Com.Twilio.Video.AudioOutput">
+    <field jni-name="HEADSET" clr-name="Headset" value="0" />
+    <field jni-name="SPEAKERPHONE" clr-name="Speakerphone" value="1" />
+  </mapping>
+
+  <mapping jni-class="com/twilio/video/CameraCapturer$CameraSource" clr-enum-type="Com.Twilio.Video.CameraSource">
+    <field jni-name="BACK_CAMERA" clr-name="BackCamera" value="0" />
+    <field jni-name="FRONT_CAMERA" clr-name="FrontCamera" value="1" />
+  </mapping>
+
+  <mapping jni-class="com/twilio/video/IceTransportPolicy" clr-enum-type="Com.Twilio.Video.CameraSource">
+    <field jni-name="ALL" clr-name="All" value="0" />
+    <field jni-name="RELAY" clr-name="Relay" value="1" />
+  </mapping>
+  -->
+
+  <mapping jni-class="com/twilio/video/VideoPixelFormat" clr-enum-type="Com.Twilio.Video.PixelFormat">
+    <field jni-name="NV21" clr-name="Nv21" value="0" />
+    <field jni-name="RGBA_8888" clr-name="Rgba8888" value="1" />
+  </mapping>
+
+</enum-field-mappings>
