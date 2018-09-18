@@ -35,7 +35,7 @@
     <PackageProjectUrl>https://github.com/dkornev/TwilioXamarinBindings</PackageProjectUrl>
     <Summary>Twilio Video iOS SDK binding for Xamarin iOS</Summary>
     <Title>Twilio Video iOS SDK</Title>
-    <Description>Twilio Video makes it easy for you to add multi-party video calling into your mobile applications quickly. Twilio.Video iOS 1.4.2</Description>
+    <Description>Twilio Video makes it easy for you to add multi-party video calling into your mobile applications quickly</Description>
     <PackageTags>twilio xamarin</PackageTags>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

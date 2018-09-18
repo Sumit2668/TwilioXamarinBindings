@@ -18,15 +18,6 @@
     <AndroidClassParser>class-parse</AndroidClassParser>
     <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
-    <PackageId>Twilio.Video.Android.XamarinBinding</PackageId>
-    <PackageVersion>2.2.1.0</PackageVersion>
-    <Authors>dkornev</Authors>
-    <Description>Twilio Video makes it easy for you to add multi-party video calling into your mobile applications quickly. Twilio.Video Android 2.2.1 (September 13, 2018)</Description>
-    <PackOnBuild>true</PackOnBuild>
-    <Owners>twilio</Owners>
-    <PackageProjectUrl>https://github.com/dkornev/TwilioXamarinBindings</PackageProjectUrl>
-    <PackageTags>twilio android xamarin</PackageTags>
-    <Title>Twilio Video Android for Xamarin</Title>
   </PropertyGroup>
   <PropertyGroup Condition="$(Configuration.Contains('Debug'))">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +35,16 @@
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageId>Twilio.Video.Android.XamarinBinding</PackageId>
+    <PackageVersion>2.2.1.0</PackageVersion>
+    <Authors>twilio dkornev</Authors>
+    <Owners>twilio</Owners>
+    <PackageProjectUrl>https://github.com/dkornev/TwilioXamarinBindings</PackageProjectUrl>
+    <Summary>Twilio Video Android SDK binding for Xamarin Android</Summary>
+    <Title>Twilio Video Android SDK</Title>
+    <Description>Twilio Video makes it easy for you to add multi-party video calling into your mobile applications quickly</Description>
+    <PackageTags>twilio xamarin</PackageTags>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
   </PropertyGroup>

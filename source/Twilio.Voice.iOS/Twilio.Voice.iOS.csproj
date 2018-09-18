@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.props" Condition="Exists('packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -26,6 +27,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageId>Twilio.Voice.iOS.XamarinBinding</PackageId>
+    <PackageVersion>2.0.5.0</PackageVersion>
+    <Authors>twilio dkornev</Authors>
+    <Owners>twilio</Owners>
+    <PackageProjectUrl>https://github.com/dkornev/TwilioXamarinBindings</PackageProjectUrl>
+    <Summary>Twilio Voice iOS SDK binding for Xamarin iOS</Summary>
+    <Title>Twilio Voice iOS SDK</Title>
+    <Description>With Twilio, you can quickly make and receive voice calls in your application. Twilio.Voice iOS 2.0.5</Description>
+    <PackageTags>twilio xamarin</PackageTags>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
   </PropertyGroup>
@@ -51,4 +62,5 @@
     <ObjcBindingNativeLibrary Include="libTwilioVoice.a" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+  <Import Project="packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.targets" Condition="Exists('packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.targets')" />
 </Project>
