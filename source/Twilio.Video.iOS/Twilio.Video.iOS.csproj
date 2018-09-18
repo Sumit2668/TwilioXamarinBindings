@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.props" Condition="Exists('packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -26,6 +27,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageId>Twilio.Video.XamarinBinding</PackageId>
+    <PackageVersion>1.4.2.0</PackageVersion>
+    <Authors>twilio dkornev</Authors>
+    <Owners>twilio</Owners>
+    <PackageProjectUrl>https://github.com/dkornev/TwilioXamarinBindings</PackageProjectUrl>
+    <Summary>Twilio Video iOS SDK binding for Xamarin iOS</Summary>
+    <Title>Twilio Video iOS SDK</Title>
+    <Description>Twilio Video makes it easy for you to add multi-party video calling into your mobile applications quickly. Twilio.Video iOS 1.4.2</Description>
+    <PackageTags>twilio xamarin</PackageTags>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
   </PropertyGroup>
@@ -51,5 +62,9 @@
       <ForceLoad>True</ForceLoad>
     </NativeReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+  <Import Project="packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.targets" Condition="Exists('packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.targets')" />
 </Project>
