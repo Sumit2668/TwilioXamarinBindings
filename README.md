@@ -48,7 +48,7 @@ Download aar/jar version you needed from https://bintray.com/twilio/releases/vid
 -keepattributes InnerClasses
 
 
-### Twilio.Video Android 2.0.9 (September 7, 2018)
+### Twilio.Voice Android 2.0.9 (September 7, 2018)
 Download aar/jar version you needed from https://bintray.com/twilio/releases/voice-android and copy it to source\Twilio.Voice.Android\Jars
 
 ##### Proguard settings
