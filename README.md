@@ -31,7 +31,7 @@ Add --registrar:static as additional mtouch arguments on iOS Build dialog for yo
 
 
 ### Twilio.Video Android 2.2.1 (September 13, 2018)
-Download aar/jar version you needed from https://bintray.com/twilio/releases/video-android and copy it to source\TwilioVideo.Android\Jars
+Download aar/jar version you needed from https://bintray.com/twilio/releases/video-android and copy it to source\Twilio.Video.Android\Jars
 
 ##### Proguard settings
 
@@ -49,7 +49,7 @@ Download aar/jar version you needed from https://bintray.com/twilio/releases/vid
 
 
 ### Twilio.Video Android 2.0.9 (September 7, 2018)
-Download aar/jar version you needed from https://bintray.com/twilio/releases/voice-android and copy it to source\TwilioVideo.Android\Jars
+Download aar/jar version you needed from https://bintray.com/twilio/releases/voice-android and copy it to source\Twilio.Voice.Android\Jars
 
 ##### Proguard settings
 
