@@ -5,13 +5,16 @@ Twilio SDKs Bindings for Xamarin apps
 [![NuGet][ios-video-nuget-img]][ios-video-nuget-link]
 [![NuGet][ios-voice-nuget-img]][ios-voice-nuget-link]
 [![NuGet][android-video-nuget-img]][android-video-nuget-link]
+[![NuGet][android-voice-nuget-img]][android-voice-nuget-link]
 
-[ios-video-nuget-img]: https://img.shields.io/badge/nuget-1.4.2-blue.svg?label=Twilio.Video.iOS%20NuGet
-[ios-video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.XamarinBinding
-[ios-voice-nuget-img]: https://img.shields.io/badge/nuget-2.0.5-blue.svg?label=Twilio.Voice.iOS%20NuGet
-[ios-voice-nuget-link]: https://www.nuget.org/packages/Twilio.Voice.iOS.XamarinBinding
-[android-video-nuget-img]: https://img.shields.io/badge/nuget-2.2.1-blue.svg?label=Twilio.Video.Android%20NuGet
-[android-video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.Android.XamarinBinding
+[ios-video-nuget-img]: https://img.shields.io/badge/Twilio.Video.iOS%20NuGet-1.4.2-blue.svg 
+[ios-video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.XamarinBinding 
+[ios-voice-nuget-img]: https://img.shields.io/badge/Twilio.Voice.iOS%20NuGet-2.0.5-blue.svg  
+[ios-voice-nuget-link]: https://www.nuget.org/packages/Twilio.Voice.iOS.XamarinBinding 
+[android-video-nuget-img]: https://img.shields.io/badge/Twilio.Video.Android%20NuGet-2.2.1-blue.svg  
+[android-video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.Android.XamarinBinding 
+[android-voice-nuget-img]: https://img.shields.io/badge/Twilio.Voice.Android%20NuGet-2.0.9-blue.svg 
+[android-voice-nuget-link]: https://www.nuget.org/packages/Twilio.Voice.Android.XamarinBinding 
 
 ## How to Build
 
@@ -30,8 +33,7 @@ Add --registrar:static as additional mtouch arguments on iOS Build dialog for yo
 ### Twilio.Video Android 2.2.1 (September 13, 2018)
 Download aar/jar version you needed from https://bintray.com/twilio/releases/video-android and copy it to source\TwilioVideo.Android\Jars
 
-
-#### Proguard settings
+##### Proguard settings
 
 -keep class com.getkeepsafe.relinker.** { *; }
 
@@ -44,6 +46,17 @@ Download aar/jar version you needed from https://bintray.com/twilio/releases/vid
 -keepclassmembernames class com.webrtc.** { *; }
 
 -keepattributes InnerClasses
+
+
+### Twilio.Video Android 2.0.9 (September 7, 2018)
+Download aar/jar version you needed from https://bintray.com/twilio/releases/voice-android and copy it to source\TwilioVideo.Android\Jars
+
+##### Proguard settings
+
+-keep class com.twilio.** { *; }
+
+-keepattributes InnerClasses
+
 
 ## Sample
 
