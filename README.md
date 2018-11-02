@@ -60,7 +60,7 @@ Download aar/jar version you needed from https://bintray.com/twilio/releases/voi
 
 ## Sample
 
-#### I don't update xamarin sample projects often, so I highly recommend you to read about using native library bindings for xamarin and you check official Twilio quickstart guides.
+#### I don't update xamarin sample projects often, so I highly recommend you to read about using native library bindings for xamarin and check official Twilio quickstart guides.
 
 [TwilioParticipantDelegate.cs](sample/Twilio.Video.Sample.iOS/TwilioParticipantDelegate.cs)
 
