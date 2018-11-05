@@ -9,7 +9,7 @@ LIB_DIR="build"
 cd "$PARENT_PATH"
 curl -L $URL > $ZIP_NAME
 tar -xf $ZIP_NAME
-touch "Native References"
+mkdir -p "Native References"
 mv $LIB_DIR/iOS/TwilioVideo.framework "Native References"/TwilioVideo.framework
 rm -rf $LIB_DIR
 rm $ZIP_NAME 
