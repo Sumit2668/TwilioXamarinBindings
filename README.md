@@ -18,13 +18,25 @@ Twilio SDKs Bindings for Xamarin apps
 
 ## How to Build
 
-### Twilio.Video iOS 1.4.2 (2.* update wip, help wanted)
+### Twilio.Video iOS 1.4.2 (2.* update wip)
+```
+sh bootstrapper.sh
+```
+
+or
+
 Download Twilio Video SDK iOS 1.4.2 https://github.com/twilio/twilio-video-ios/releases/download/1.4.2/TwilioVideo.framework.zip and copy TwilioVideo.framework into the source\Twilio.Video.iOS\Native References directory
 
 Add --registrar:static as additional mtouch arguments on iOS Build dialog for your iOS application
 
 
 ### Twilio.Voice iOS 2.0.5 (August 3, 2018)
+```
+sh bootstrapper.sh
+```
+
+or
+
 Download Programmable Voice iOS SDK 2.0.5 static library from https://media.twiliocdn.com/sdk/ios/voice/releases/2.0.5/twilio-voice-ios-static-2.0.5.tar.bz2 and copy libTwilioVoice.a library into the source/Twilio.Voice.iOS directory
 
 Add --registrar:static as additional mtouch arguments on iOS Build dialog for your iOS application
