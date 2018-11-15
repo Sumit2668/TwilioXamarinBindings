@@ -17,7 +17,7 @@
     <TargetFrameworkVersion>v4.1</TargetFrameworkVersion>
     <AndroidClassParser>class-parse</AndroidClassParser>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition="$(Configuration.Contains('Debug'))">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -26,7 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition="$(Configuration.Contains('Release'))">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -44,6 +44,10 @@
     <Title>Twilio Voice Android SDK</Title>
     <Description>With Twilio, you can quickly make and receive voice calls in your application. Twilio.Voice Android 2.0.9</Description>
     <PackageTags>twilio xamarin</PackageTags>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
