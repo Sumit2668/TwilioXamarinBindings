@@ -44,7 +44,7 @@ Add --registrar:static as additional mtouch arguments on iOS Build dialog for yo
 
 ### Twilio.Video Android 2.2.1 (September 13, 2018)
 ```
-The aar is already included into this repostiory. So just build the project with VS.
+The aar is already included into this repostiory. So just build the project.
 ```
 
 or
@@ -71,7 +71,7 @@ $ jar cvf video-android-2.2.1.aar -C tempFolder/ .
 
 ### Twilio.Voice Android 2.0.9 (September 7, 2018)
 ```
-The aar is already included into this repostiory. So just build the project with VS.
+The aar is already included into this repostiory. So just build the project.
 ```
 
 or
