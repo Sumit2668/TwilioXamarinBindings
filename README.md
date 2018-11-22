@@ -49,7 +49,7 @@ The aar is already included into this repostiory. So just build the project with
 
 or
 
-Download aar version you needed from https://bintray.com/twilio/releases/video-android and copy it to source\Twilio.Video.Android\Jars; Then you will need to change res/values/values.xml and add missing <attr format="boolean" name="overlaySurface"/> attribute there.
+Download aar version you needed from https://bintray.com/twilio/releases/video-android and copy it to source\Twilio.Video.Android\Jars; Then you will need to change res/values/values.xml and add missing \<attr format="boolean" name="overlaySurface"/> attribute there.
 ```
 $ unzip video-android-2.2.1.aar -d tempFolder
 # Change whatever you need
@@ -99,7 +99,7 @@ Download aar/jar version you needed from https://bintray.com/twilio/releases/voi
 ### Contributions
 Members of the community have contributed to improving and update bindings:
 
- - @codeanees
+ - none
 
 If you have a bugfix or an update you'd like to add, please open an issue. 
 All pull requests should be opened against the `master` branch.
