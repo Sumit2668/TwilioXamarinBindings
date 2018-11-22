@@ -43,24 +43,39 @@ Add --registrar:static as additional mtouch arguments on iOS Build dialog for yo
 
 
 ### Twilio.Video Android 2.2.1 (September 13, 2018)
-Download aar/jar version you needed from https://bintray.com/twilio/releases/video-android and copy it to source\Twilio.Video.Android\Jars
+```
+The aar is already included into this repostiory. So just build the project with VS.
+```
+
+or
+
+Download aar version you needed from https://bintray.com/twilio/releases/video-android and copy it to source\Twilio.Video.Android\Jars; Then you will need to change res/values/values.xml and add missing <attr format="boolean" name="overlaySurface"/> attribute there.
+```
+$ unzip video-android-2.2.1.aar -d tempFolder
+# Change whatever you need
+$ jar cvf video-android-2.2.1.aar -C tempFolder/ .
+```
 
 ##### Proguard settings
 
 -keep class com.getkeepsafe.relinker.** { *; }
 
--keep class com.webrtc.** { *; }
+-keep class org.webrtc.** { *; }
 
--keep class com.webrtc.voiceengine.** { *; }
+-keep class com.twilio.video.** { *; }
 
--keepclassmembers class com.webrtc.** { *; }
-
--keepclassmembernames class com.webrtc.** { *; }
+-keep class com.twilio.common.** { *; }
 
 -keepattributes InnerClasses
 
 
 ### Twilio.Voice Android 2.0.9 (September 7, 2018)
+```
+The aar is already included into this repostiory. So just build the project with VS.
+```
+
+or
+
 Download aar/jar version you needed from https://bintray.com/twilio/releases/voice-android and copy it to source\Twilio.Voice.Android\Jars
 
 ##### Proguard settings
