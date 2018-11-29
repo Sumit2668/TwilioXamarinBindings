@@ -16,7 +16,6 @@
     <AssemblyName>Twilio.Video.Android</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidClassParser>class-parse</AndroidClassParser>
-    <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition="$(Configuration.Contains('Debug'))">
