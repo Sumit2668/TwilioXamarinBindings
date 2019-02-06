@@ -1,22 +1,51 @@
 using System;
 using System.Runtime.InteropServices;
 using CoreGraphics;
-using CoreFoundation;
-using CoreMedia;
-using CoreVideo;
-using Foundation;
 using ObjCRuntime;
-using UIKit;
 
 namespace Twilio.Video.iOS
 {
-	[Native]
-	public enum TVIAudioOutput : ulong
+	static class CFunctions
 	{
-		VideoChatDefault = 0,
-		VideoChatSpeaker,
-		VoiceChatDefault,
-		VoiceChatSpeaker
+		// extern void TVIAudioDeviceFormatChanged (TVIAudioDeviceContext _Nonnull context);
+		[DllImport ("__Internal")]
+		static extern unsafe void TVIAudioDeviceFormatChanged (IntPtr context);
+
+		// extern void TVIAudioDeviceWriteCaptureData (TVIAudioDeviceContext _Nonnull context, int8_t * _Nonnull data, size_t sizeInBytes);
+		[DllImport ("__Internal")]
+		static extern unsafe void TVIAudioDeviceWriteCaptureData (IntPtr context, sbyte* data, ulong sizeInBytes);
+
+		// extern void TVIAudioDeviceReadRenderData (TVIAudioDeviceContext _Nonnull context, int8_t * _Nonnull data, size_t sizeInBytes);
+		[DllImport ("__Internal")]
+		static extern unsafe void TVIAudioDeviceReadRenderData (IntPtr context, sbyte* data, ulong sizeInBytes);
+
+		// extern void TVIAudioDeviceExecuteWorkerBlock (TVIAudioDeviceContext _Nonnull context, TVIAudioDeviceWorkerBlock _Nonnull block);
+		[DllImport ("__Internal")]
+		static extern unsafe void TVIAudioDeviceExecuteWorkerBlock (IntPtr context, IntPtr block);
+
+		// extern void TVIAudioSessionActivated (TVIAudioDeviceContext _Nonnull context);
+		[DllImport ("__Internal")]
+		static extern unsafe void TVIAudioSessionActivated (IntPtr context);
+
+		// extern void TVIAudioSessionDeactivated (TVIAudioDeviceContext _Nonnull context);
+		[DllImport ("__Internal")]
+		static extern unsafe void TVIAudioSessionDeactivated (IntPtr context);
+
+		// CGAffineTransform TVIVideoOrientationMakeTransform (TVIVideoOrientation orientation);
+		[DllImport ("__Internal")]
+		static extern CGAffineTransform TVIVideoOrientationMakeTransform (TVIVideoOrientation orientation);
+
+		// BOOL TVIVideoOrientationIsRotated (TVIVideoOrientation orientation);
+		[DllImport ("__Internal")]
+		static extern bool TVIVideoOrientationIsRotated (TVIVideoOrientation orientation);
+
+		// BOOL TVIVideoOrientationIsValid (TVIVideoOrientation orientation);
+		[DllImport ("__Internal")]
+		static extern bool TVIVideoOrientationIsValid (TVIVideoOrientation orientation);
+
+		// TVIAspectRatio TVIAspectRatioMake (NSUInteger numerator, NSUInteger denominator);
+		[DllImport ("__Internal")]
+		static extern TVIAspectRatio TVIAspectRatioMake (ulong numerator, ulong denominator);
 	}
 
 	[Native]
@@ -35,26 +64,8 @@ namespace Twilio.Video.iOS
 		Right
 	}
 
-	static class CFunctions
-	{
-		// CGAffineTransform TVIVideoOrientationMakeTransform (TVIVideoOrientation orientation);
-		//[DllImport("__Internal")]
-		[Export("TVIVideoOrientationMakeTransform")]
-		static extern CGAffineTransform TVIVideoOrientationMakeTransform(TVIVideoOrientation orientation);
-
-		// BOOL TVIVideoOrientationIsRotated (TVIVideoOrientation orientation);
-		//[DllImport("__Internal")]
-		[Export("TVIVideoOrientationIsRotated")]
-		static extern bool TVIVideoOrientationIsRotated(TVIVideoOrientation orientation);
-
-		// TVIAspectRatio TVIAspectRatioMake (NSUInteger numerator, NSUInteger denominator);
-		//[DllImport("__Internal")]
-		[Export("TVIAspectRatioMake")]
-		static extern TVIAspectRatio TVIAspectRatioMake(nuint numerator, nuint denominator);
-	}
-
     // TODO
-	//public enum TVIPixelFormat : ulong
+	//public enum TVIPixelFormat : uint
 	//{
 	//	TVIPixelFormat32ARGB = kCVPixelFormatType_32ARGB,
 	//	TVIPixelFormat32BGRA = kCVPixelFormatType_32BGRA,
@@ -73,12 +84,10 @@ namespace Twilio.Video.iOS
 	}
 
 	[Native]
-	public enum TVICameraCapturerInterruptionReason : ulong
+	public enum TVICameraSourceError : ulong
 	{
-		VideoDeviceNotAvailableInBackground = 1,
-		AudioDeviceInUseByAnotherClient,
-		VideoDeviceInUseByAnotherClient,
-		VideoDeviceNotAvailableWithMultipleForegroundApps
+		None = 0,
+		AlreadyRunning
 	}
 
 	[Native]
@@ -110,6 +119,12 @@ namespace Twilio.Video.iOS
 		RoomStatusCallbackMethodInvalidError = 53110,
 		RoomStatusCallbackInvalidError = 53111,
 		RoomStatusInvalidError = 53112,
+		RoomRoomExistsError = 53113,
+		RoomInvalidParametersError = 53114,
+		RoomMediaRegionInvalidError = 53115,
+		RoomMediaRegionUnavailableError = 53116,
+		RoomSubscriptionOperationNotSupportedError = 53117,
+		RoomRoomCompletedError = 53118,
 		ParticipantIdentityInvalidError = 53200,
 		ParticipantIdentityTooLongError = 53201,
 		ParticipantIdentityCharsInvalidError = 53202,
@@ -120,6 +135,8 @@ namespace Twilio.Video.iOS
 		TrackNameInvalidError = 53301,
 		TrackNameTooLongError = 53302,
 		TrackNameCharsInvalidError = 53303,
+		TrackNameIsDuplicatedError = 53304,
+		TrackServerTrackCapacityReachedError = 53305,
 		MediaClientLocalDescFailedError = 53400,
 		MediaServerLocalDescFailedError = 53401,
 		MediaClientRemoteDescFailedError = 53402,
@@ -136,7 +153,7 @@ namespace Twilio.Video.iOS
 		Succeeded,
 		Frozen,
 		Waiting,
-		Inprogress,
+		InProgress,
 		Failed,
 		Cancelled,
 		Unknown
@@ -147,6 +164,12 @@ namespace Twilio.Video.iOS
 	{
 		All = 0,
 		Relay = 1
+	}
+
+	public enum TVIIsacCodecSampleRate : ushort
+	{
+		Wideband = 16000,
+		SuperWideband = 32000
 	}
 
 	[Native]
