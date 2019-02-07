@@ -7,7 +7,7 @@ Twilio SDKs Bindings for Xamarin apps
 [![NuGet][android-video-nuget-img]][android-video-nuget-link]
 [![NuGet][android-voice-nuget-img]][android-voice-nuget-link]
 
-[ios-video-nuget-img]: https://img.shields.io/badge/Twilio.Video.iOS%20NuGet-1.4.2-blue.svg 
+[ios-video-nuget-img]: https://img.shields.io/badge/Twilio.Video.iOS%20NuGet-2.6.0-blue.svg 
 [ios-video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.XamarinBinding 
 [ios-voice-nuget-img]: https://img.shields.io/badge/Twilio.Voice.iOS%20NuGet-2.0.5-blue.svg  
 [ios-voice-nuget-link]: https://www.nuget.org/packages/Twilio.Voice.iOS.XamarinBinding 
@@ -18,14 +18,14 @@ Twilio SDKs Bindings for Xamarin apps
 
 ## How to Build
 
-### Twilio.Video iOS 1.4.2 (2.* update wip)
+### Twilio.Video iOS 2.6.0 (December 19, 2018)
 ```
 sh bootstrapper.sh
 ```
 
 or
 
-Download Twilio Video SDK iOS 1.4.2 https://github.com/twilio/twilio-video-ios/releases/download/1.4.2/TwilioVideo.framework.zip and copy TwilioVideo.framework into the source\Twilio.Video.iOS\Native References directory
+Download Twilio Video SDK iOS 2.6.0  https://github.com/twilio/twilio-video-ios/releases/download/2.6.0/TwilioVideo.framework.zip and copy TwilioVideo.framework into the source\Twilio.Video.iOS\Native References directory
 
 Add --registrar:static as additional mtouch arguments on iOS Build dialog for your iOS application
 
@@ -89,11 +89,9 @@ Download aar/jar version you needed from https://bintray.com/twilio/releases/voi
 
 #### I don't update xamarin sample projects often, so I highly recommend you to read about using native library bindings for xamarin and check official Twilio quickstart guides.
 
-[TwilioParticipantDelegate.cs](sample/Twilio.Video.Sample.iOS/TwilioParticipantDelegate.cs)
+[Twilio.Voice.Sample](sample/Twilio.Voice.Sample.iOS)
 
-[TwilioRoomDelegate.cs](sample/Twilio.Video.Sample.iOS/TwilioRoomDelegate.cs)
-
-[TwilioVideoViewDelegate.cs](sample/Twilio.Video.Sample.iOS/TwilioVideoViewDelegate.cs)
+[Twilio.Video.Sample](sample/Twilio.Video.Sample.iOS)
 
 
 ### Contributions
