@@ -2,49 +2,60 @@ using System;
 using System.Runtime.InteropServices;
 using CoreGraphics;
 using ObjCRuntime;
+using Foundation;
 
 namespace Twilio.Video.iOS
 {
 	static class CFunctions
 	{
 		// extern void TVIAudioDeviceFormatChanged (TVIAudioDeviceContext _Nonnull context);
-		[DllImport ("__Internal")]
+		//[DllImport ("__Internal")]
+        [Export("TVIAudioDeviceFormatChanged")]
 		static extern unsafe void TVIAudioDeviceFormatChanged (IntPtr context);
 
 		// extern void TVIAudioDeviceWriteCaptureData (TVIAudioDeviceContext _Nonnull context, int8_t * _Nonnull data, size_t sizeInBytes);
-		[DllImport ("__Internal")]
+		//[DllImport ("__Internal")]
+        [Export("TVIAudioDeviceWriteCaptureData")]
 		static extern unsafe void TVIAudioDeviceWriteCaptureData (IntPtr context, sbyte* data, ulong sizeInBytes);
 
 		// extern void TVIAudioDeviceReadRenderData (TVIAudioDeviceContext _Nonnull context, int8_t * _Nonnull data, size_t sizeInBytes);
-		[DllImport ("__Internal")]
+		//[DllImport ("__Internal")]
+        [Export("TVIAudioDeviceReadRenderData")]
 		static extern unsafe void TVIAudioDeviceReadRenderData (IntPtr context, sbyte* data, ulong sizeInBytes);
 
 		// extern void TVIAudioDeviceExecuteWorkerBlock (TVIAudioDeviceContext _Nonnull context, TVIAudioDeviceWorkerBlock _Nonnull block);
-		[DllImport ("__Internal")]
+		//[DllImport ("__Internal")]
+        [Export("TVIAudioDeviceExecuteWorkerBlock")]
 		static extern unsafe void TVIAudioDeviceExecuteWorkerBlock (IntPtr context, IntPtr block);
 
 		// extern void TVIAudioSessionActivated (TVIAudioDeviceContext _Nonnull context);
-		[DllImport ("__Internal")]
+		//[DllImport ("__Internal")]
+        [Export("TVIAudioSessionActivated")]
 		static extern unsafe void TVIAudioSessionActivated (IntPtr context);
 
 		// extern void TVIAudioSessionDeactivated (TVIAudioDeviceContext _Nonnull context);
-		[DllImport ("__Internal")]
+		//[DllImport ("__Internal")]
+        [Export("TVIAudioSessionDeactivated")]
 		static extern unsafe void TVIAudioSessionDeactivated (IntPtr context);
 
 		// CGAffineTransform TVIVideoOrientationMakeTransform (TVIVideoOrientation orientation);
-		[DllImport ("__Internal")]
+		//[DllImport ("__Internal")]
+        [Export("TVIVideoOrientationMakeTransform")]
 		static extern CGAffineTransform TVIVideoOrientationMakeTransform (TVIVideoOrientation orientation);
 
 		// BOOL TVIVideoOrientationIsRotated (TVIVideoOrientation orientation);
-		[DllImport ("__Internal")]
+		//[DllImport ("__Internal")]
+        [Export("TVIVideoOrientationIsRotated")]
 		static extern bool TVIVideoOrientationIsRotated (TVIVideoOrientation orientation);
 
 		// BOOL TVIVideoOrientationIsValid (TVIVideoOrientation orientation);
-		[DllImport ("__Internal")]
+		//[DllImport ("__Internal")]
+        [Export("TVIVideoOrientationIsValid")]
 		static extern bool TVIVideoOrientationIsValid (TVIVideoOrientation orientation);
 
 		// TVIAspectRatio TVIAspectRatioMake (NSUInteger numerator, NSUInteger denominator);
-		[DllImport ("__Internal")]
+		//[DllImport ("__Internal")]
+        [Export("TVIAspectRatioMake")]
 		static extern TVIAspectRatio TVIAspectRatioMake (ulong numerator, ulong denominator);
 	}
 

@@ -30,7 +30,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>Twilio.Video.XamarinBinding</PackageId>
-    <PackageVersion>1.4.2.0</PackageVersion>
+    <PackageVersion>2.6.0.0</PackageVersion>
     <Authors>twilio dkornev</Authors>
     <Owners>twilio</Owners>
     <PackageProjectUrl>https://github.com/dkornev/TwilioXamarinBindings</PackageProjectUrl>

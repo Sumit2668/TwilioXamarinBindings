@@ -576,8 +576,13 @@ namespace Twilio.Video.iOS
 		void OnVideoFormatRequest ([NullAllowed] TVIVideoFormat format);
 	}
 
-	// @protocol TVIVideoSource <NSObject>
-	[Protocol, Model]
+    interface ITVIVideoSource : TVIVideoSource
+    {
+
+    }
+
+    // @protocol TVIVideoSource <NSObject>
+    [Protocol, Model]
 	[BaseType (typeof(NSObject))]
 	interface TVIVideoSource
 	{
@@ -1597,11 +1602,11 @@ namespace Twilio.Video.iOS
 
 		// -(void)addRenderer:(id<TVIVideoRenderer> _Nonnull)renderer;
 		[Export ("addRenderer:")]
-		void AddRenderer (TVIVideoRenderer renderer);
+		void AddRenderer (ITVIVideoRenderer renderer);
 
 		// -(void)removeRenderer:(id<TVIVideoRenderer> _Nonnull)renderer;
 		[Export ("removeRenderer:")]
-		void RemoveRenderer (TVIVideoRenderer renderer);
+		void RemoveRenderer (ITVIVideoRenderer renderer);
 	}
 
 	// @interface TVILocalVideoTrack : TVIVideoTrack
@@ -1641,13 +1646,13 @@ namespace Twilio.Video.iOS
 		[Static]
 		[Export ("trackWithSource:")]
 		[return: NullAllowed]
-		TVILocalVideoTrack TrackWithSource (TVIVideoSource source);
+		TVILocalVideoTrack TrackWithSource (ITVIVideoSource source);
 
 		// +(instancetype _Nullable)trackWithSource:(id<TVIVideoSource> _Nonnull)source enabled:(BOOL)enabled name:(NSString * _Nullable)name;
 		[Static]
 		[Export ("trackWithSource:enabled:name:")]
 		[return: NullAllowed]
-		TVILocalVideoTrack TrackWithSource (TVIVideoSource source, bool enabled, [NullAllowed] string name);
+		TVILocalVideoTrack TrackWithSource (ITVIVideoSource source, bool enabled, [NullAllowed] string name);
 	}
 
 	// @interface TVIVideoTrackPublication : TVITrackPublication
@@ -2211,8 +2216,13 @@ namespace Twilio.Video.iOS
 		TVIAspectRatio AspectRatio { get; }
 	}
 
-	// @protocol TVIVideoRenderer <NSObject>
-	[Protocol, Model]
+    interface ITVIVideoRenderer : TVIVideoRenderer
+    {
+
+    }
+
+    // @protocol TVIVideoRenderer <NSObject>
+    [Protocol, Model]
 	[BaseType (typeof(NSObject))]
 	interface TVIVideoRenderer
 	{
