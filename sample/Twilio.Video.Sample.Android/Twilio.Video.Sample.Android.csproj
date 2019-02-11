@@ -16,8 +16,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
@@ -181,7 +180,7 @@
     <AndroidResource Include="Resources\values-w820dp\dimens.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\source\Twilio.Video.Android\v2\Twilio.Video.Android.csproj">
+    <ProjectReference Include="..\..\source\Twilio.Video.Android\v3\Twilio.Video.Android.csproj">
       <Project>{72204651-f86d-4e85-9eb3-92e5db4d1c0d}</Project>
       <Name>Twilio.Video.Android</Name>
     </ProjectReference>
