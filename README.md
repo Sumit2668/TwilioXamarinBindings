@@ -11,7 +11,7 @@ Twilio SDKs Bindings for Xamarin apps
 [ios-video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.XamarinBinding 
 [ios-voice-nuget-img]: https://img.shields.io/badge/Twilio.Voice.iOS%20NuGet-2.0.5-blue.svg  
 [ios-voice-nuget-link]: https://www.nuget.org/packages/Twilio.Voice.iOS.XamarinBinding 
-[android-video-nuget-img]: https://img.shields.io/badge/Twilio.Video.Android%20NuGet-2.2.1-blue.svg  
+[android-video-nuget-img]: https://img.shields.io/badge/Twilio.Video.Android%20NuGet-3.2.2-blue.svg  
 [android-video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.Android.XamarinBinding 
 [android-voice-nuget-img]: https://img.shields.io/badge/Twilio.Voice.Android%20NuGet-2.0.9-blue.svg 
 [android-voice-nuget-link]: https://www.nuget.org/packages/Twilio.Voice.Android.XamarinBinding 
@@ -42,19 +42,14 @@ Download Programmable Voice iOS SDK 2.0.5 static library from https://media.twil
 Add --registrar:static as additional mtouch arguments on iOS Build dialog for your iOS application
 
 
-### Twilio.Video Android 2.2.1 (September 13, 2018)
+### Twilio.Video Android 3.2.2 (January 8th, 2019)
 ```
 The aar is already included into this repostiory. So just build the project.
 ```
 
 or
 
-Download aar version you needed from https://bintray.com/twilio/releases/video-android and copy it to source\Twilio.Video.Android\Jars; Then you will need to change res/values/values.xml and add missing \<attr format="boolean" name="overlaySurface"/> attribute there.
-```
-$ unzip video-android-2.2.1.aar -d tempFolder
-# Change whatever you need
-$ jar cvf video-android-2.2.1.aar -C tempFolder/ .
-```
+Download aar version you needed from https://bintray.com/twilio/releases/video-android and copy it to source\Twilio.Video.Android\Jars
 
 ##### Proguard settings
 
@@ -65,6 +60,8 @@ $ jar cvf video-android-2.2.1.aar -C tempFolder/ .
 -keep class com.twilio.video.** { *; }
 
 -keep class com.twilio.common.** { *; }
+
+-keep class twiliovideo.** { *; }
 
 -keepattributes InnerClasses
 
@@ -97,7 +94,7 @@ Download aar/jar version you needed from https://bintray.com/twilio/releases/voi
 ### Contributions
 Members of the community have contributed to improving and update bindings:
 
- - none
+ - ksavidetove
 
 If you have a bugfix or an update you'd like to add, please open an issue. 
 All pull requests should be opened against the `master` branch.
