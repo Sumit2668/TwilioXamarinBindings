@@ -28,7 +28,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <PackOnBuild>true</PackOnBuild>
     <PackageId>Twilio.Video.XamarinBinding</PackageId>
     <PackageVersion>2.6.0.0</PackageVersion>
     <Authors>twilio dkornev</Authors>
