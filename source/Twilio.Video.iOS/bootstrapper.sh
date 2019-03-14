@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 PARENT_PATH=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-# URL="https://github.com/twilio/twilio-video-ios/releases/download/2.6.0/TwilioVideo.framework.zip" # google drive is faster
-URL="https://drive.google.com/uc?authuser=0&id=1gW3DCUO8Q7tsTlanoSb5cva1lsQSXZUv&export=download"
+URL="https://github.com/twilio/twilio-video-ios/releases/download/2.6.0/TwilioVideo.framework.zip"
 ZIP_NAME="TwilioVideo.framework.zip"
 LIB_DIR="build"
 
