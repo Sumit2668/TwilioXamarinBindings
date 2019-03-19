@@ -51,6 +51,8 @@ or
 
 Download aar version you needed from https://bintray.com/twilio/releases/video-android and copy it to source\Twilio.Video.Android\Jars
 
+VS 2019 is recommended.
+
 ##### Proguard settings
 
 -keep class com.getkeepsafe.relinker.** { *; }
