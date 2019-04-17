@@ -49,7 +49,12 @@ The aar is already included into this repostiory. So just build the project.
 
 or
 
-Download aar version you needed from https://bintray.com/twilio/releases/video-android and copy it to source\Twilio.Video.Android\Jars
+Download aar version you needed from https://bintray.com/twilio/releases/video-android and copy it to source\Twilio.Video.Android\Jars; Then you will need to change res/values/values.xml and add missing \<attr format="boolean" name="overlaySurface"/> attribute there.	Download aar version you needed from https://bintray.com/twilio/releases/video-android and copy it to source\Twilio.Video.Android\Jars
+```	
+$ unzip video-android-2.2.1.aar -d tempFolder	
+# Change whatever you need	
+$ jar cvf video-android-2.2.1.aar -C tempFolder/ .	
+```
 
 VS 2019 is recommended.
 
