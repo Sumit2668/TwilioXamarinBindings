@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>Twilio.Video.Android.XamarinBinding</PackageId>
-    <PackageVersion>3.2.2.0</PackageVersion>
+    <PackageVersion>3.2.2.1</PackageVersion>
     <Authors>twilio dkornev</Authors>
     <Owners>twilio</Owners>
     <PackageProjectUrl>https://github.com/dkornev/TwilioXamarinBindings</PackageProjectUrl>
