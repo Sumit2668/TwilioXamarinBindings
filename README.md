@@ -2,6 +2,8 @@
 
 Twilio SDKs Bindings for Xamarin apps
 
+> NOTE: New version of Twilio.Voice.iOS binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVoiceXamarinIOS) 
+
 [![NuGet][ios-video-nuget-img]][ios-video-nuget-link]
 [![NuGet][ios-voice-nuget-img]][ios-voice-nuget-link]
 [![NuGet][android-video-nuget-img]][android-video-nuget-link]
@@ -9,7 +11,7 @@ Twilio SDKs Bindings for Xamarin apps
 
 [ios-video-nuget-img]: https://img.shields.io/badge/Twilio.Video.iOS%20NuGet-2.6.0-blue.svg 
 [ios-video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.XamarinBinding 
-[ios-voice-nuget-img]: https://img.shields.io/badge/Twilio.Voice.iOS%20NuGet-2.0.5-blue.svg  
+[ios-voice-nuget-img]: https://img.shields.io/badge/Twilio.Voice.iOS%20NuGet-blue.svg  
 [ios-voice-nuget-link]: https://www.nuget.org/packages/Twilio.Voice.iOS.XamarinBinding 
 [android-video-nuget-img]: https://img.shields.io/badge/Twilio.Video.Android%20NuGet-3.2.2-blue.svg  
 [android-video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.Android.XamarinBinding 
@@ -30,17 +32,8 @@ Download Twilio Video SDK iOS 2.6.0  https://github.com/twilio/twilio-video-ios/
 Add --registrar:static as additional mtouch arguments on iOS Build dialog for your iOS application
 
 
-### Twilio.Voice iOS 2.0.5 (August 3, 2018)
-```
-sh bootstrapper.sh
-```
-
-or
-
-Download Programmable Voice iOS SDK 2.0.5 static library from https://media.twiliocdn.com/sdk/ios/voice/releases/2.0.5/twilio-voice-ios-static-2.0.5.tar.bz2 and copy libTwilioVoice.a library into the source/Twilio.Voice.iOS directory
-
-Add --registrar:static as additional mtouch arguments on iOS Build dialog for your iOS application
-
+### Twilio.Voice iOS
+> NOTE: New version of Twilio.Voice.iOS binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVoiceXamarinIOS) 
 
 ### Twilio.Video Android 3.2.2 (January 8th, 2019)
 ```
@@ -92,8 +85,6 @@ Download aar/jar version you needed from https://bintray.com/twilio/releases/voi
 ## Sample
 
 #### I don't update xamarin sample projects often, so I highly recommend you to read about using native library bindings for xamarin and check official Twilio quickstart guides.
-
-[Twilio.Voice.Sample](sample/Twilio.Voice.Sample.iOS)
 
 [Twilio.Video.Sample](sample/Twilio.Video.Sample.iOS)
 
