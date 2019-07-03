@@ -237,14 +237,3 @@ _Pvt_Extensions
 
 tools/
 externals/
-
-source/Twilio.Video.iOS/Native References
-source/Twilio.Video.iOS/Pods/
-source/Twilio.Video.iOS/build/
-source/Twilio.Video.iOS/Binding/
-
-source/Twilio.Voice.iOS/libTwilioVoice.a
-source/Twilio.Voice.iOS/libboringssl.a
-source/Twilio.Voice.iOS/Pods/
-source/Twilio.Voice.iOS/build/
-source/Twilio.Voice.iOS/Binding/

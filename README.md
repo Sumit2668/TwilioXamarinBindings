@@ -3,13 +3,14 @@
 Twilio SDKs Bindings for Xamarin apps
 
 > NOTE: New version of Twilio.Voice.iOS binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVoiceXamarinIOS) 
+> NOTE: New version of Twilio.Video.iOS binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVideoXamarinIOS) 
 
 [![NuGet][ios-video-nuget-img]][ios-video-nuget-link]
 [![NuGet][ios-voice-nuget-img]][ios-voice-nuget-link]
 [![NuGet][android-video-nuget-img]][android-video-nuget-link]
 [![NuGet][android-voice-nuget-img]][android-voice-nuget-link]
 
-[ios-video-nuget-img]: https://img.shields.io/badge/Twilio.Video.iOS%20NuGet-2.6.0-blue.svg 
+[ios-video-nuget-img]: https://img.shields.io/badge/Twilio.Video.iOS%20NuGet-blue.svg 
 [ios-video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.XamarinBinding 
 [ios-voice-nuget-img]: https://img.shields.io/badge/Twilio.Voice.iOS%20NuGet-blue.svg  
 [ios-voice-nuget-link]: https://www.nuget.org/packages/Twilio.Voice.iOS.XamarinBinding 
@@ -20,16 +21,8 @@ Twilio SDKs Bindings for Xamarin apps
 
 ## How to Build
 
-### Twilio.Video iOS 2.6.0 (December 19, 2018)
-```
-sh bootstrapper.sh
-```
-
-or
-
-Download Twilio Video SDK iOS 2.6.0  https://github.com/twilio/twilio-video-ios/releases/download/2.6.0/TwilioVideo.framework.zip and copy TwilioVideo.framework into the source\Twilio.Video.iOS\Native References directory
-
-Add --registrar:static as additional mtouch arguments on iOS Build dialog for your iOS application
+### Twilio.Video iOS
+> NOTE: New version of Twilio.Video.iOS binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVideoXamarinIOS) 
 
 
 ### Twilio.Voice iOS
@@ -85,8 +78,6 @@ Download aar/jar version you needed from https://bintray.com/twilio/releases/voi
 ## Sample
 
 #### I don't update xamarin sample projects often, so I highly recommend you to read about using native library bindings for xamarin and check official Twilio quickstart guides.
-
-[Twilio.Video.Sample](sample/Twilio.Video.Sample.iOS)
 
 
 ### Contributions
