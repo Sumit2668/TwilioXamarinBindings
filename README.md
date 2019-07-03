@@ -3,7 +3,8 @@
 Twilio SDKs Bindings for Xamarin apps
 
 > NOTE: New version of Twilio.Voice.iOS binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVoiceXamarinIOS) 
-> NOTE: New version of Twilio.Video.iOS binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVideoXamarinIOS) 
+> New version of Twilio.Video.iOS binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVideoXamarinIOS)
+> New version of Twilio.Voice.Android binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVoiceXamarinAndroid)
 
 [![NuGet][ios-video-nuget-img]][ios-video-nuget-link]
 [![NuGet][ios-voice-nuget-img]][ios-voice-nuget-link]
@@ -16,7 +17,7 @@ Twilio SDKs Bindings for Xamarin apps
 [ios-voice-nuget-link]: https://www.nuget.org/packages/Twilio.Voice.iOS.XamarinBinding 
 [android-video-nuget-img]: https://img.shields.io/badge/Twilio.Video.Android%20NuGet-3.2.2-blue.svg  
 [android-video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.Android.XamarinBinding 
-[android-voice-nuget-img]: https://img.shields.io/badge/Twilio.Voice.Android%20NuGet-2.0.9-blue.svg 
+[android-voice-nuget-img]: https://img.shields.io/badge/Twilio.Voice.Android%20NuGet-blue.svg 
 [android-voice-nuget-link]: https://www.nuget.org/packages/Twilio.Voice.Android.XamarinBinding 
 
 ## How to Build
@@ -27,6 +28,7 @@ Twilio SDKs Bindings for Xamarin apps
 
 ### Twilio.Voice iOS
 > NOTE: New version of Twilio.Voice.iOS binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVoiceXamarinIOS) 
+
 
 ### Twilio.Video Android 3.2.2 (January 8th, 2019)
 ```
@@ -59,20 +61,8 @@ VS 2019 is recommended.
 -keepattributes InnerClasses
 
 
-### Twilio.Voice Android 2.0.9 (September 7, 2018)
-```
-The aar is already included into this repostiory. So just build the project.
-```
-
-or
-
-Download aar/jar version you needed from https://bintray.com/twilio/releases/voice-android and copy it to source\Twilio.Voice.Android\Jars
-
-##### Proguard settings
-
--keep class com.twilio.** { *; }
-
--keepattributes InnerClasses
+### Twilio.Voice Android
+> NOTE: New version of Twilio.Voice.Android binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVoiceXamarinAndroid) 
 
 
 ## Sample
