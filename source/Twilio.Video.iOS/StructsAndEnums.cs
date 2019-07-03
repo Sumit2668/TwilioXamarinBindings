@@ -10,52 +10,52 @@ namespace Twilio.Video.iOS
 	{
 		// extern void TVIAudioDeviceFormatChanged (TVIAudioDeviceContext _Nonnull context);
 		//[DllImport ("__Internal")]
-        [Export("TVIAudioDeviceFormatChanged")]
+		[Export("TVIAudioDeviceFormatChanged")]
 		static extern unsafe void TVIAudioDeviceFormatChanged (IntPtr context);
 
 		// extern void TVIAudioDeviceWriteCaptureData (TVIAudioDeviceContext _Nonnull context, int8_t * _Nonnull data, size_t sizeInBytes);
 		//[DllImport ("__Internal")]
-        [Export("TVIAudioDeviceWriteCaptureData")]
+		[Export("TVIAudioDeviceWriteCaptureData")]
 		static extern unsafe void TVIAudioDeviceWriteCaptureData (IntPtr context, sbyte* data, ulong sizeInBytes);
 
 		// extern void TVIAudioDeviceReadRenderData (TVIAudioDeviceContext _Nonnull context, int8_t * _Nonnull data, size_t sizeInBytes);
 		//[DllImport ("__Internal")]
-        [Export("TVIAudioDeviceReadRenderData")]
+		[Export("TVIAudioDeviceReadRenderData")]
 		static extern unsafe void TVIAudioDeviceReadRenderData (IntPtr context, sbyte* data, ulong sizeInBytes);
 
 		// extern void TVIAudioDeviceExecuteWorkerBlock (TVIAudioDeviceContext _Nonnull context, TVIAudioDeviceWorkerBlock _Nonnull block);
 		//[DllImport ("__Internal")]
-        [Export("TVIAudioDeviceExecuteWorkerBlock")]
+		[Export("TVIAudioDeviceExecuteWorkerBlock")]
 		static extern unsafe void TVIAudioDeviceExecuteWorkerBlock (IntPtr context, IntPtr block);
 
 		// extern void TVIAudioSessionActivated (TVIAudioDeviceContext _Nonnull context);
 		//[DllImport ("__Internal")]
-        [Export("TVIAudioSessionActivated")]
+		[Export("TVIAudioSessionActivated")]
 		static extern unsafe void TVIAudioSessionActivated (IntPtr context);
 
 		// extern void TVIAudioSessionDeactivated (TVIAudioDeviceContext _Nonnull context);
 		//[DllImport ("__Internal")]
-        [Export("TVIAudioSessionDeactivated")]
+		[Export("TVIAudioSessionDeactivated")]
 		static extern unsafe void TVIAudioSessionDeactivated (IntPtr context);
 
 		// CGAffineTransform TVIVideoOrientationMakeTransform (TVIVideoOrientation orientation);
 		//[DllImport ("__Internal")]
-        [Export("TVIVideoOrientationMakeTransform")]
+		[Export("TVIVideoOrientationMakeTransform")]
 		static extern CGAffineTransform TVIVideoOrientationMakeTransform (TVIVideoOrientation orientation);
 
 		// BOOL TVIVideoOrientationIsRotated (TVIVideoOrientation orientation);
 		//[DllImport ("__Internal")]
-        [Export("TVIVideoOrientationIsRotated")]
+		[Export("TVIVideoOrientationIsRotated")]
 		static extern bool TVIVideoOrientationIsRotated (TVIVideoOrientation orientation);
 
 		// BOOL TVIVideoOrientationIsValid (TVIVideoOrientation orientation);
 		//[DllImport ("__Internal")]
-        [Export("TVIVideoOrientationIsValid")]
+		[Export("TVIVideoOrientationIsValid")]
 		static extern bool TVIVideoOrientationIsValid (TVIVideoOrientation orientation);
 
 		// TVIAspectRatio TVIAspectRatioMake (NSUInteger numerator, NSUInteger denominator);
 		//[DllImport ("__Internal")]
-        [Export("TVIAspectRatioMake")]
+		[Export("TVIAspectRatioMake")]
 		static extern TVIAspectRatio TVIAspectRatioMake (ulong numerator, ulong denominator);
 	}
 
@@ -75,16 +75,16 @@ namespace Twilio.Video.iOS
 		Right
 	}
 
-    // TODO
-	//public enum TVIPixelFormat : uint
-	//{
-	//	TVIPixelFormat32ARGB = kCVPixelFormatType_32ARGB,
-	//	TVIPixelFormat32BGRA = kCVPixelFormatType_32BGRA,
-	//	YUV420BiPlanarVideoRange = kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange,
-	//	YUV420BiPlanarFullRange = kCVPixelFormatType_420YpCbCr8BiPlanarFullRange,
-	//	YUV420PlanarVideoRange = kCVPixelFormatType_420YpCbCr8Planar,
-	//	YUV420PlanarFullRange = kCVPixelFormatType_420YpCbCr8PlanarFullRange
-	//}
+	// TODO
+	// public enum TVIPixelFormat : uint
+	// {
+	// 	TVIPixelFormat32ARGB = kCVPixelFormatType_32ARGB,
+	// 	TVIPixelFormat32BGRA = kCVPixelFormatType_32BGRA,
+	// 	YUV420BiPlanarVideoRange = kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange,
+	// 	YUV420BiPlanarFullRange = kCVPixelFormatType_420YpCbCr8BiPlanarFullRange,
+	// 	YUV420PlanarVideoRange = kCVPixelFormatType_420YpCbCr8Planar,
+	// 	YUV420PlanarFullRange = kCVPixelFormatType_420YpCbCr8PlanarFullRange
+	// }
 
 	[Native]
 	public enum TVICameraCaptureSource : ulong
@@ -154,6 +154,7 @@ namespace Twilio.Video.iOS
 		MediaServerRemoteDescFailedError = 53403,
 		MediaNoSupportedCodecError = 53404,
 		MediaConnectionError = 53405,
+		MediaDataTrackFailedError = 53406,
 		ConfigurationAcquireFailedError = 53500,
 		ConfigurationAcquireTurnFailedError = 53501
 	}
@@ -184,19 +185,32 @@ namespace Twilio.Video.iOS
 	}
 
 	[Native]
+	public enum TVINetworkQualityLevel : long
+	{
+		Unknown = -1,
+		Zero = 0,
+		One,
+		Two,
+		Three,
+		Four,
+		Five
+	}
+
+	[Native]
 	public enum TVIRoomState : ulong
 	{
 		Connecting = 0,
 		Connected,
-		Disconnected
+		Disconnected,
+		Reconnecting
 	}
 
 	[StructLayout (LayoutKind.Sequential)]
 	public struct TVIAspectRatio
 	{
-		public ulong numerator;
+		public nuint numerator;
 
-		public ulong denominator;
+		public nuint denominator;
 	}
 
 	[Native]
