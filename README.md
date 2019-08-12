@@ -3,13 +3,13 @@
 Twilio SDKs Bindings for Xamarin apps
 
 > NOTE:
-
-> New version of Twilio.Voice.iOS binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVoiceXamarinIOS) 
-
+> 
+> New version of Twilio.Voice.iOS binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVoiceXamarinIOS)
+>
 > New version of Twilio.Video.iOS binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVideoXamarinIOS)
-
+>
 > New version of Twilio.Voice.Android binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVoiceXamarinAndroid)
-
+>
 > New version of Twilio.Video.Android binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVideoXamarinAndroid)
 
 [![NuGet][ios-video-nuget-img]][ios-video-nuget-link]
@@ -25,19 +25,3 @@ Twilio SDKs Bindings for Xamarin apps
 [android-video-nuget-link]: https://www.nuget.org/packages/Twilio.Video.Android.XamarinBinding 
 [android-voice-nuget-img]: https://img.shields.io/badge/Twilio.Voice.Android%20NuGet-blue.svg 
 [android-voice-nuget-link]: https://www.nuget.org/packages/Twilio.Voice.Android.XamarinBinding 
-
-## How to Build
-
-### Twilio.Video iOS
-> NOTE: New version of Twilio.Video.iOS binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVideoXamarinIOS) 
-
-
-### Twilio.Voice iOS
-> NOTE: New version of Twilio.Voice.iOS binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVoiceXamarinIOS) 
-
-
-### Twilio.Video Android
-> NOTE: New version of Twilio.Video.Android binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVideoXamarinAndroid)
-
-### Twilio.Voice Android
-> NOTE: New version of Twilio.Voice.Android binding is pushed to a separate [repository](https://github.com/dkornev/TwilioVoiceXamarinAndroid) 
